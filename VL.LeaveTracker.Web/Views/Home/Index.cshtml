@@ -1,45 +1,351 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+   
+  
 }
-@section featured {
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>@ViewBag.Title.</h1>
-                <h2>@ViewBag.Message</h2>
-            </hgroup>
-            <p>
-                To learn more about ASP.NET MVC visit
-                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
-                If you have any questions about ASP.NET MVC visit
-                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
-            </p>
-        </div>
-    </section>
-}
-<h3>We suggest the following:</h3>
-<ol class="round">
-    <li class="one">
-        <h5>Getting Started</h5>
-        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-        enables a clean separation of concerns and that gives you full control over markup
-        for enjoyable, agile development. ASP.NET MVC includes many features that enable
-        fast, TDD-friendly development for creating sophisticated applications that use
-        the latest web standards.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
-    </li>
 
-    <li class="two">
-        <h5>Add NuGet packages and jump-start your coding</h5>
-        NuGet makes it easy to install and update free libraries and tools.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
-    </li>
+<head>
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <title></title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet">
+</head>
+<script src="~/Scripts/jquery-2.1.1.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.24.js"></script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<style>
+   
+    .cell {
+        width: 30px;
+        height: 30px;
+        float: left;
+        border: 1px solid #0026ff;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+        float: left;
+    }
 
-    <li class="three">
-        <h5>Find Web Hosting</h5>
-        You can easily find a web hosting company that offers the right mix of features
-        and price for your applications.
-        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
-    </li>
-</ol>
+    .headerCell {
+        width: 30px;
+        height: 15px;
+        float: left;
+        border: 1px solid #d3dce0;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+    }
+
+
+
+    .headerCellDate {
+        width: 30px;
+        height: 15px;
+        float: left;
+        border: 1px solid #d3dce0;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+    }
+
+    .headerCellToday {
+        width: 30px;
+        height: 15px;
+        float: left;
+        border: 1px solid #d3dce0;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+        background-color: #f66037;
+    }
+
+    .headerCellHoliday {
+        width: 30px;
+        height: 15px;
+        float: left;
+        border: 1px solid #808080;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+    }
+</style>
+
+<div style="text-align: right; padding-bottom: 10px; padding-top: 2em;">
+    Select Date: 
+    <input type="date" id="inputDate">
+</div>
+<div class="jumbotron" style="width: 1025px; height: 400px; padding-top: 5px; float: left; background-color: #d3dce0;">
+    <div id="days" style="float: left; margin: .5px;">
+    </div>
+    <div id="dates" style="float: left; margin: .5px;">
+    </div>
+    <div id="months" style="float: left; margin: .5px;">
+    </div>
+    <div style="width: 1000px; float: left;">
+
+
+        @for (int i = 0; i < 32; i++)
+        {
+
+            for (int j = 0; j < 12; j++)
+            {                                       
+            <div id="@i@j" class="cell ">
+            </div>   
+            
+            }
+        }
+
+    </div>
+    <div class="popup1"><a href="#" >Hi</a></div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        
+        $(".cell").click(function () {
+            
+        });
+
+       
+        $('#inputDate').change(function () {
+            //alert("1");
+            setDateRange(inputDate.value)
+
+            function setDateRange(SetDate) {
+
+                $('#days').html(function () {
+
+                    var currdate = new Date(SetDate);
+                    // alert(currdate)
+
+                    var startingDate = new Date(currdate);
+                    startingDate.setDate(startingDate.getDate() - 15);
+
+                    //alert(startingDate)
+
+                    var endingDate = new Date(currdate);
+                    endingDate.setDate(endingDate.getDate() + 15);
+
+                    // alert(endingDate)
+
+                    var date = new Date(startingDate);
+                    // alert(date)
+
+                    var result = "";
+
+                    var weekday = new Array(7);
+                    weekday[0] = "Mon";
+                    weekday[1] = "Tue";
+                    weekday[2] = "Wed";
+                    weekday[3] = "Thu";
+                    weekday[4] = "Fri";
+                    weekday[5] = "Sat";
+                    weekday[6] = "Sun";
+                    var n = weekday[date.getDay()];
+                    for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
+                        n = weekday[date.getDay()];
+                        // result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
+                        for (var j = 0; j < 1; j++) {
+
+                            // alert(n);
+                            if (n == "Sat" || n == "Sun") {
+
+                                // alert(n)
+                                result = result + "<div class='headerCellHoliday'>" + n.toUpperCase() + "</div>";
+                                //alert(result)
+                            }
+                            else {
+
+                                if (date == currdate) {
+                                    //alert(date)
+
+                                    result = result + "<div class='headerCellToday'>" + n.toUpperCase() + "</div>";
+                                    //alert(result)
+
+                                }
+                                else {
+                                    result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
+
+                                }
+                            }
+
+                        }
+                    }
+
+                    return result;
+
+                });
+                $('#dates').html(function () {
+
+                    var currdate = new Date(SetDate);
+                    //alert(currdate)
+
+                    var startingDate = new Date(currdate);
+                    startingDate.setDate(startingDate.getDate() - 15);
+
+                    //alert(startingDate)
+
+                    var endingDate = new Date(currdate);
+                    endingDate.setDate(endingDate.getDate() + 15);
+
+                    // alert(endingDate)
+
+                    var date = new Date(startingDate);
+                    // alert(date)
+
+                    var result = "";
+
+                    var weekday = new Array(7);
+                    weekday[0] = "Mon";
+                    weekday[1] = "Tue";
+                    weekday[2] = "Wed";
+                    weekday[3] = "Thu";
+                    weekday[4] = "Fri";
+                    weekday[5] = "Sat";
+                    weekday[6] = "Sun";
+                    var n = weekday[date.getDay()];
+
+                    //  alert(n)
+
+
+                    //alert(date)
+
+                    for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
+                        n = weekday[date.getDay()];
+                        // result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
+                        for (var j = 0; j < 1; j++) {
+
+                            // alert(n);
+                            if (n == "Sat" || n == "Sun") {
+
+                                // alert(n)
+                                result = result + "<div class='headerCellHoliday'>" + date.getDate() + "</div>";
+                                //alert(result)
+                            }
+                            else {
+
+                                if (date == currdate) {
+                                    //alert(date)
+
+                                    result = result + "<div class='headerCellToday'>" + date.getDate() + "</div>";
+                                    //alert(result)
+
+                                }
+                                else {
+                                    result = result + "<div class='headerCell'>" + date.getDate() + "</div>";
+
+                                }
+                            }
+
+                        }
+                    }
+
+                    return result;
+
+                });
+                $('#months').html(function () {
+
+                    var currdate = new Date(SetDate);
+                    //alert(currdate)
+
+                    var startingDate = new Date(currdate);
+                    startingDate.setDate(startingDate.getDate() - 15);
+
+                    //alert(startingDate)
+
+                    var endingDate = new Date(currdate);
+                    endingDate.setDate(endingDate.getDate() + 15);
+
+                    // alert(endingDate)
+
+                    var date = new Date(startingDate);
+                    // alert(date)
+
+                    var result = "";
+
+                    var weekday = new Array(7);
+                    weekday[0] = "Mon";
+                    weekday[1] = "Tue";
+                    weekday[2] = "Wed";
+                    weekday[3] = "Thu";
+                    weekday[4] = "Fri";
+                    weekday[5] = "Sat";
+                    weekday[6] = "Sun";
+                    var n = weekday[date.getDay()];
+
+                    var month = new Array(7);
+                    month[0] = "Jan";
+                    month[1] = "Feb";
+                    month[2] = "Mar";
+                    month[3] = "Apr";
+                    month[4] = "May";
+                    month[5] = "Jun";
+                    month[6] = "Jul";
+                    month[7] = "Aug";
+                    month[8] = "Sep";
+                    month[9] = "Oct";
+                    month[10] = "Nov";
+                    month[11] = "Dec";
+                    var m = month[date.getMonth()];
+                    //alert(m)
+
+
+                    //alert(date)
+
+                    for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
+                        n = weekday[date.getDay()];
+                        m = month[date.getMonth()];
+                        // result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
+                        for (var j = 0; j < 1; j++) {
+
+                            // alert(n);
+                            if (n == "Sat" || n == "Sun") {
+
+                                // alert(n)
+                                result = result + "<div class='headerCellHoliday'>" + m.toUpperCase() + "</div>";
+                                //alert(result)
+                            }
+                            else {
+
+                                if (date == currdate) {
+                                    //alert(date)
+
+                                    result = result + "<div class='headerCellToday'>" + m.toUpperCase() + "</div>";
+                                    //alert(result)
+
+                                }
+                                else {
+                                    result = result + "<div class='headerCell'>" + m.toUpperCase() + "</div>";
+
+                                }
+                            }
+
+                        }
+                    }
+
+                    return result;
+
+                });
+
+
+
+            }
+
+
+        });
+
+       
+
+    });
+</script>
+
+
+
+
+
+
+
+
