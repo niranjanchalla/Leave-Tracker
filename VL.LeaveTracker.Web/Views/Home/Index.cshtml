@@ -5,7 +5,7 @@
 }
 
 <head>
-    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+
     <title></title>
     <!-- Bootstrap core CSS -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet">
@@ -13,10 +13,36 @@
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <script src="~/Scripts/jquery-2.1.1.js"></script>
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
 <script src="~/Scripts/jquery-ui-1.8.24.js"></script>
 <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
 <style>
-   
+    .value1:hover
+    {
+        background-color:#fff;
+        border:.2px solid #000;
+        }
+        .value2:hover
+    {
+        background-color:#fff;
+        border:1px solid #000;
+        }
+        .value3:hover
+    {
+        background-color:#fff;
+        border:1px solid #000;
+        }
+        .value4:hover
+    {
+        background-color:#fff;
+        border:1px solid #000;
+        }
+        .value5:hover
+    {
+        background-color:#fff;
+        border:1px solid #000;
+        }
     .cell {
         width: 30px;
         height: 30px;
@@ -70,6 +96,13 @@
         font-size: .8em;
         text-align: center;
     }
+    /*style the main menu*/
+
+    #LeaveMenu {
+        
+        display:block;
+    }
+   
 </style>
 
 <div style="text-align: right; padding-bottom: 10px; padding-top: 2em;">
@@ -91,25 +124,31 @@
 
             for (int j = 0; j < 12; j++)
             {                                       
-            <div id="@i@j" class="cell ">
+            <div id="C @i@j" class="cell">
+
+                @* <ul class="myMenu">
+                    <li><a href="#" class="cell">.</a>
+                        <ul>
+                            <li><a href="#">Vacation Leave</a></li>
+                            <li><a href="#">Sick Leave</a></li>
+                            <li><a href="#">Personal Leave</a></li>
+                            <li><a href="#">Marriage Leave</a></li>
+                            <li><a href="#">Custom Leave</a></li>
+                        </ul>
+                    </li>
+                </ul>*@
             </div>   
-            
+  
             }
         }
 
     </div>
-    <div class="popup1"><a href="#" >Hi</a></div>
+
 </div>
 
 <script type="text/javascript">
     $(document).ready(function () {
-
-        
-        $(".cell").click(function () {
-            
-        });
-
-       
+        var selectedCellId;
         $('#inputDate').change(function () {
             //alert("1");
             setDateRange(inputDate.value)
@@ -329,17 +368,72 @@
                     return result;
 
                 });
-
-
-
             }
-
-
         });
+
+        $('div[id ^= "C"]').click(function (e) {
+            selectedCellId = this.id;
+            $(this).html(prepareMenu());
+        });
+
+
+
+
+        //$('#LeaveMenu').on('click', function () {
+        //    e.stopPropagation();
+        //    if ($('li').is(':visible')) {
+        //        closeSubMenu();
+        //        $('#LeaveMenu', this).hide();
+        //    }
+        //});
+
+        //$('ul').click(function () {
+
+
+        //    closeSubMenu();
+
+        //});
 
        
 
+
+
+
+
+        //$('#LeaveMenu').click('li',function () {
+        //    alert('#LeaveMenu');
+        //    //if (selectedCellId != null) {
+        //    //    alert('background-color');
+        //    //   // $(selectedCellId).css('background-color', $(this).css("background-color"));
+        //    //}
+        //    closeSubMenu();
+        //});
+
+        //$('#LeaveMenu > li').bind('click', closeSubMenu);
+
+        //$('#LeaveMenu').bind('mousedown', closeSubMenu);
+
+        function openSubMenu(e) {
+           
+            $('.dropdown').slideDown();
+
+        };
+
+        function closeSubMenu() {
+            //alert('closeSubMenu');
+            
+            $('.dropdown').slideUp();
+        };
+
+        function prepareMenu() {
+            var resultString = '';
+            return resultString =
+               "<div class='dropdown theme-dropdown clearfix' aria-labelledby='dropdownMenu1'><div id='one' class='value1'  onclick='openSubMenu(this);' >Record 1<div class='innervalue' style='display:none;' >d93fcb</div><div style='background-color:#d93fcb;height:25px;width:25px;'></div></div><br /><div  id='two' class='value2' onclick='openSubMenu(this);'>Record 2<div class='innervalue' style='display:none;' >4568e6</div><div style='background-color:#4568e6;height:25px;width:25px;'></div></div><br /><div  id='two' class='value3' onclick='openSubMenu(this);'>Record 3<div class='innervalue' style='display:none;' >3fa588</div><div style='background-color:#3fa588;height:25px;width:25px;'></div></div><br /><div  id='three' class='value4' onclick='openSubMenu(this);'>Record 4<div class='innervalue' style='display:none;' >f0be73</div><div style='background-color:#f0be73;height:25px;width:25px;'></div></div><br /><div  id='five' class='value5' onclick='openSubMenu(this);'>Record 5<div class='innervalue' style='display:none;' >9fdc6f</div><div style='background-color:#9fdc6f;height:25px;width:25px;'></div></div></div>";
+                
+        }
+
     });
+
 </script>
 
 
@@ -349,3 +443,11 @@
 
 
 
+@* "<div class='dropdown theme-dropdown clearfix'>
+                <ul id='LeaveMenu' class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>
+                    <li class='active' role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Vacation Leave</a></li>
+                    <li role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Sick Leave</a></li>
+                    <li role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Personal Leave</a></li>
+                    <li role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Marriage Leave</a></li>
+                    <li role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Custom Leave</a></li>
+                    </ul></div>"*@
