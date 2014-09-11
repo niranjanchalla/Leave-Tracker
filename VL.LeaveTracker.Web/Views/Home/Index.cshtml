@@ -1,7 +1,5 @@
 ﻿@{
     ViewBag.Title = "Home Page";
-   
-  
 }
 
 <head>
@@ -13,144 +11,49 @@
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <script src="~/Scripts/jquery-2.1.1.js"></script>
+<script src="~/Scripts/jquery.popupover.js"></script>
 <script src="~/Scripts/jquery-2.1.1.min.js"></script>
 <script src="~/Scripts/jquery-ui-1.8.24.js"></script>
 <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
-
-<style>
-    .value1:hover
-    {
-        background-color:#fff;
-        border:.2px solid #000;
-        }
-        .value2:hover
-    {
-        background-color:#fff;
-        border:1px solid #000;
-        }
-        .value3:hover
-    {
-        background-color:#fff;
-        border:1px solid #000;
-        }
-        .value4:hover
-    {
-        background-color:#fff;
-        border:1px solid #000;
-        }
-        .value5:hover
-    {
-        background-color:#fff;
-        border:1px solid #000;
-        }
-    .cell {
-        width: 30px;
-        height: 30px;
-        float: left;
-        border: 1px solid #0026ff;
-        margin: .5px;
-        font-size: .8em;
-        text-align: center;
-        float: left;
-    }
-
-    .headerCell {
-        width: 30px;
-        height: 15px;
-        float: left;
-        border: 1px solid #d3dce0;
-        margin: .5px;
-        font-size: .8em;
-        text-align: center;
-    }
-
-
-
-    .headerCellDate {
-        width: 30px;
-        height: 15px;
-        float: left;
-        border: 1px solid #d3dce0;
-        margin: .5px;
-        font-size: .8em;
-        text-align: center;
-    }
-
-    .headerCellToday {
-        width: 30px;
-        height: 15px;
-        float: left;
-        border: 1px solid #d3dce0;
-        margin: .5px;
-        font-size: .8em;
-        text-align: center;
-        background-color: #f66037;
-    }
-
-    .headerCellHoliday {
-        width: 30px;
-        height: 15px;
-        float: left;
-        border: 1px solid #808080;
-        margin: .5px;
-        font-size: .8em;
-        text-align: center;
-    }
-    /*style the main menu*/
-
-    #LeaveMenu {
-        
-        display:block;
-    }
-   
-</style>
-
-<div style="text-align: right; padding-bottom: 10px; padding-top: 2em;">
-    Select Date: 
-    <input type="date" id="inputDate">
-</div>
-<div class="jumbotron" style="width: 1025px; height: 400px; padding-top: 5px; float: left; background-color: #d3dce0;">
-    <div id="days" style="float: left; margin: .5px;">
-    </div>
-    <div id="dates" style="float: left; margin: .5px;">
-    </div>
-    <div id="months" style="float: left; margin: .5px;">
-    </div>
-    <div style="width: 1000px; float: left;">
-
-
-        @for (int i = 0; i < 32; i++)
-        {
-
-            for (int j = 0; j < 12; j++)
-            {                                       
-            <div id="C @i@j" class="cell">
-
-                @* <ul class="myMenu">
-                    <li><a href="#" class="cell">.</a>
-                        <ul>
-                            <li><a href="#">Vacation Leave</a></li>
-                            <li><a href="#">Sick Leave</a></li>
-                            <li><a href="#">Personal Leave</a></li>
-                            <li><a href="#">Marriage Leave</a></li>
-                            <li><a href="#">Custom Leave</a></li>
-                        </ul>
-                    </li>
-                </ul>*@
-            </div>   
-  
-            }
-        }
-
-    </div>
-
-</div>
-
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
 <script type="text/javascript">
+    webshims.setOptions('waitReady', false);
+    webshims.setOptions('forms-ext', { types: 'date' });
+    webshims.polyfill('forms forms-ext');
+    var selectedCellId;
+    var resultString;
+    var selectedCellId;
+    function clickpopup(event) {
+        //alert(selectedCellId);
+        var divID = selectedCellId;
+        //alert(divID);
+        var innerValue = event.firstChild.innerHTML;
+       // alert(innerValue);
+        var element = innerValue.charAt(0);
+       // alert(element);
+        if (divID != "") {
+            //alert($('#'+divID).html());
+            var $AppendText = '<div style="font-weight: bold;background-color:white;border: 0px solid #000;font-size: 2.0em;text-align: center;margin-top: 3px;">' + element + '</div>';
+            var NewDiv = document.createElement("div");
+            $('#' + divID).html($AppendText,NewDiv);
+            $('#' + divID).addClass('valueSet');
+           
+            //$('#' + divID).add(element);
+            //$('#' + divID).css('background-color', 'cream');
+        }
+      
+            $('.dropdown').hide();
+
+        return event;
+    };
+    //$(document).mouseenter(function () {
+       
+    //});
     $(document).ready(function () {
-        var selectedCellId;
+        
         $('#inputDate').change(function () {
-            //alert("1");
+
             setDateRange(inputDate.value)
 
             function setDateRange(SetDate) {
@@ -158,7 +61,6 @@
                 $('#days').html(function () {
 
                     var currdate = new Date(SetDate);
-                    // alert(currdate)
 
                     var startingDate = new Date(currdate);
                     startingDate.setDate(startingDate.getDate() - 15);
@@ -176,13 +78,13 @@
                     var result = "";
 
                     var weekday = new Array(7);
-                    weekday[0] = "Mon";
-                    weekday[1] = "Tue";
-                    weekday[2] = "Wed";
-                    weekday[3] = "Thu";
-                    weekday[4] = "Fri";
-                    weekday[5] = "Sat";
-                    weekday[6] = "Sun";
+                    weekday[0] = "Sun";
+                    weekday[1] = "Mon";
+                    weekday[2] = "Tue";
+                    weekday[3] = "Wed";
+                    weekday[4] = "Thu";
+                    weekday[5] = "Fri";
+                    weekday[6] = "Sat";
                     var n = weekday[date.getDay()];
                     for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
                         n = weekday[date.getDay()];
@@ -238,13 +140,13 @@
                     var result = "";
 
                     var weekday = new Array(7);
-                    weekday[0] = "Mon";
-                    weekday[1] = "Tue";
-                    weekday[2] = "Wed";
-                    weekday[3] = "Thu";
-                    weekday[4] = "Fri";
-                    weekday[5] = "Sat";
-                    weekday[6] = "Sun";
+                    weekday[0] = "Sun";
+                    weekday[1] = "Mon";
+                    weekday[2] = "Tue";
+                    weekday[3] = "Wed";
+                    weekday[4] = "Thu";
+                    weekday[5] = "Fri";
+                    weekday[6] = "Sat";
                     var n = weekday[date.getDay()];
 
                     //  alert(n)
@@ -306,13 +208,13 @@
                     var result = "";
 
                     var weekday = new Array(7);
-                    weekday[0] = "Mon";
-                    weekday[1] = "Tue";
-                    weekday[2] = "Wed";
-                    weekday[3] = "Thu";
-                    weekday[4] = "Fri";
-                    weekday[5] = "Sat";
-                    weekday[6] = "Sun";
+                    weekday[0] = "Sun";
+                    weekday[1] = "Mon";
+                    weekday[2] = "Tue";
+                    weekday[3] = "Wed";
+                    weekday[4] = "Thu";
+                    weekday[5] = "Fri";
+                    weekday[6] = "Sat";
                     var n = weekday[date.getDay()];
 
                     var month = new Array(7);
@@ -370,84 +272,132 @@
                 });
             }
         });
-
-        $('div[id ^= "C"]').click(function (e) {
+        resultString = "<ul id='LeaveMenu' class='dropdown theme-dropdown clearfix' role='menu' aria-labelledby='dropdownMenu1'><li role='presentation' onclick='clickpopup(this)'><a role='menuitem' tabindex='-1' href='#'>Vacation Leave</a></li><li role='presentation' onclick='clickpopup(this)'><a role='menuitem' tabindex='-1' href='#'>Sick Leave</a></li><li role='presentation'onclick='clickpopup(this)'><a role='menuitem' tabindex='-1' href='#'>Personal Leave</a></li><li role='presentation' onclick='clickpopup(this)'><a role='menuitem' tabindex='-1' href='#'>Marriage Leave</a></li><li role='presentation' onclick='clickpopup(this)'><a role='menuitem' tabindex='-1' href='#'>Custom Leave</a></li></ul>";
+        // "<div class='dropdown theme-dropdown clearfix' aria-labelledby='dropdownMenu1'><div id='one' class='value1'  onclick='clickpopup(this);' >Record 1<div class='innervalue' style='display:none;' >d93fcb</div><div style='background-color:#d93fcb;height:25px;width:25px;'></div></div><br /><div  id='two' class='value2' onclick='clickpopup(this);'>Record 2<div class='innervalue' style='display:none;' >4568e6</div><div style='background-color:#4568e6;height:25px;width:25px;'></div></div><br /><div  id='two' class='value3' onclick='clickpopup(this);'>Record 3<div class='innervalue' style='display:none;' >3fa588</div><div style='background-color:#3fa588;height:25px;width:25px;'></div></div><br /><div  id='three' class='value4' onclick='clickpopup(this);'>Record 4<div class='innervalue' style='display:none;' >f0be73</div><div style='background-color:#f0be73;height:25px;width:25px;'></div></div><br /><div  id='five' class='value5' onclick='clickpopup(this);'>Record 5<div class='innervalue' style='display:none;' >9fdc6f</div><div style='background-color:#9fdc6f;height:25px;width:25px;'></div></div></div>";
+        $('.cell').click(function () {
             selectedCellId = this.id;
-            $(this).html(prepareMenu());
+            //alert(selectedCellId);
+            var self = this;
+            $(self).html(resultString);
+          
         });
-
-
-
-
-        //$('#LeaveMenu').on('click', function () {
-        //    e.stopPropagation();
-        //    if ($('li').is(':visible')) {
-        //        closeSubMenu();
-        //        $('#LeaveMenu', this).hide();
-        //    }
-        //});
-
-        //$('ul').click(function () {
-
-
-        //    closeSubMenu();
-
-        //});
-
-       
-
-
-
-
-
-        //$('#LeaveMenu').click('li',function () {
-        //    alert('#LeaveMenu');
-        //    //if (selectedCellId != null) {
-        //    //    alert('background-color');
-        //    //   // $(selectedCellId).css('background-color', $(this).css("background-color"));
-        //    //}
-        //    closeSubMenu();
-        //});
-
-        //$('#LeaveMenu > li').bind('click', closeSubMenu);
-
-        //$('#LeaveMenu').bind('mousedown', closeSubMenu);
-
-        function openSubMenu(e) {
-           
-            $('.dropdown').slideDown();
-
-        };
-
-        function closeSubMenu() {
-            //alert('closeSubMenu');
-            
-            $('.dropdown').slideUp();
-        };
-
-        function prepareMenu() {
-            var resultString = '';
-            return resultString =
-               "<div class='dropdown theme-dropdown clearfix' aria-labelledby='dropdownMenu1'><div id='one' class='value1'  onclick='openSubMenu(this);' >Record 1<div class='innervalue' style='display:none;' >d93fcb</div><div style='background-color:#d93fcb;height:25px;width:25px;'></div></div><br /><div  id='two' class='value2' onclick='openSubMenu(this);'>Record 2<div class='innervalue' style='display:none;' >4568e6</div><div style='background-color:#4568e6;height:25px;width:25px;'></div></div><br /><div  id='two' class='value3' onclick='openSubMenu(this);'>Record 3<div class='innervalue' style='display:none;' >3fa588</div><div style='background-color:#3fa588;height:25px;width:25px;'></div></div><br /><div  id='three' class='value4' onclick='openSubMenu(this);'>Record 4<div class='innervalue' style='display:none;' >f0be73</div><div style='background-color:#f0be73;height:25px;width:25px;'></div></div><br /><div  id='five' class='value5' onclick='openSubMenu(this);'>Record 5<div class='innervalue' style='display:none;' >9fdc6f</div><div style='background-color:#9fdc6f;height:25px;width:25px;'></div></div></div>";
-                
-        }
-
+        
     });
-
 </script>
 
+<style>
+    .value1:hover {
+        background-color: #fff;
+        border: .2px solid #000;
+    }
 
+    .value2:hover {
+        background-color: #fff;
+        border: 1px solid #000;
+    }
 
+    .value3:hover {
+        background-color: #fff;
+        border: 1px solid #000;
+    }
 
+    .value4:hover {
+        background-color: #fff;
+        border: 1px solid #000;
+    }
 
+    .value5:hover {
+        background-color: #fff;
+        border: 1px solid #000;
+    }
 
+    .cell {
+        width: 30px;
+        height: 30px;
+        float: left;
+        border: 1px solid #0026ff;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+        float: left;
+    }
 
+    .headerCell {
+        width: 30px;
+        height: 15px;
+        float: left;
+        border: 1px solid #d3dce0;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+    }
+
+    .headerCellDate {
+        width: 30px;
+        height: 15px;
+        float: left;
+        border: 1px solid #d3dce0;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+    }
+
+    .headerCellToday {
+        width: 30px;
+        height: 15px;
+        float: left;
+        border: 1px solid #d3dce0;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+        background-color: #f66037;
+    }
+
+    .headerCellHoliday {
+        width: 30px;
+        height: 15px;
+        float: left;
+        border: 1px solid #808080;
+        margin: .5px;
+        font-size: .8em;
+        text-align: center;
+    }
+
+    .dropdown {
+    display:block;
+    }
+    #LeaveMenu {
+        display: block;
+    }
+</style>
+<div style="text-align: right; padding-bottom: 10px; padding-top: 2em;">
+    Select Date: 
+    <input type="date" id="inputDate">
+</div>
+<div class="jumbotron" style="width: 1030px; height: 400px; padding-top: 5px; float: left; background-color: #d3dce0;">
+    <div id="days" style="float: left; margin: .5px;">
+    </div>
+    <div id="dates" style="float: left; margin: .5px;">
+    </div>
+    <div id="months" style="float: left; margin: .5px;">
+    </div>
+    <div id="container" style="width: 1000px; float: left;">
+        @for (int i = 0; i < 32; i++)
+        {
+            for (int j = 0; j < 12; j++)
+            {                                       
+            <div id="@i@j" class="cell">
+            </div>   
+            }
+        }
+    </div>
+</div>
 
 @* "<div class='dropdown theme-dropdown clearfix'>
                 <ul id='LeaveMenu' class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>
-                    <li class='active' role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Vacation Leave</a></li>
-                    <li role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Sick Leave</a></li>
-                    <li role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Personal Leave</a></li>
-                    <li role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Marriage Leave</a></li>
-                    <li role='presentation' onclick='openSubMenu(this);'><a role='menuitem' tabindex='-1' href='#'>Custom Leave</a></li>
-                    </ul></div>"*@
+                    <li class='active' role='presentation' onclick='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Vacation Leave</a></li>
+                    <li role='presentation' onclick='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Sick Leave</a></li>
+                    <li role='presentation' onclick='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Personal Leave</a></li>
+                    <li role='presentation' onclick='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Marriage Leave</a></li>
+                    <li role='presentation' onclick='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Custom Leave</a></li>
+                </ul></div>"*@
