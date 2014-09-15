@@ -1,0 +1,7 @@
+C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\bin\Debug\VL.LeaveTracker.DataAccess.dll
+C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\bin\Debug\VL.LeaveTracker.DataAccess.pdb
+C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\bin\Debug\VL.LeaveTracker.Models.dll
+C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\bin\Debug\VL.LeaveTracker.Models.pdb
+C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\obj\Debug\VL.LeaveTracker.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\obj\Debug\VL.LeaveTracker.DataAccess.dll
+C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\obj\Debug\VL.LeaveTracker.DataAccess.pdb
