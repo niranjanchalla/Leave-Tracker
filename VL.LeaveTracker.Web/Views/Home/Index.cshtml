@@ -17,340 +17,7 @@
 <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
 <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
 <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
-<script type="text/javascript">
-    webshims.setOptions('waitReady', false);
-    webshims.setOptions('forms-ext', { types: 'date' });
-    webshims.polyfill('forms forms-ext');
-    var resultString;
-    var selectedCellId;
-    
-    function clickpopup(event) {
-        //alert(selectedCellId);
-        var divID = selectedCellId;
-        //alert(divID);
-        var innerValue = event.firstChild.innerHTML;
-        // alert(innerValue);
-        var element = innerValue.charAt(0);
-        // alert(element);
-        var color;
-        if (element == 'V') {
-            color = "313ae5";
-        } else {
-            if (element == 'S') {
-                color = "34a52b";
-            }
-            else {
-                if (element == 'P') {
-                    color = "ff2187";
-                }
-                else {
-                    if (element == 'M') {
-                        color = "f4f63d";
-                    }
-                    else {
-                        if (element == 'C') {
-                            color = "ff00dc";
-                        }
-                        else {
-                            if (element == 'R') {
-                                element = " ";
-                                color = "d3dce0";
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-        if (divID != "") {
-            //alert($('#'+divID).html());
-            var $AppendText = '<div style="font-weight: bold;border: 0px solid #000;font-size: 2.0em;text-align:center;">' + element + '</div>';
-
-            // var NewDiv = document.createElement("div");
-            $('#' + divID).html($AppendText);
-            $('#' + divID).css('background-color', '#' + color);
-            $('#' + divID).addClass('valueSet');
-        }
-
-        alert(selectedCellId);
-        var x = selectedCellId.replace('Cell ', '');
-        var splits = x.split(' ');
-        employeeRowNo = splits[0];
-       
-        $('#totalLeaveCount ' + employeeRowNo).html(GetLeavesCountByEmployee(employeeRowNo));
-        
-        return event.result;
-    }
-
-    //function GetLeavesCountByDay()
-    //{ }
-
-    function GetLeavesCountByEmployee(employeeRowNo) {
-        
-        var result = 0;        
-        for (var column = 0; column < 31; column++) {            
-            if ($('#' + employeeRowNo + column).hasClass('valueSet')) {
-                result++;
-            }
-        };
-        alert('count - ' +  result)
-        return result;
-    }
-
-    //$(document).bind('click', function () {
-
-    //    GetLeavesCountByEmployee();
-    //    $('#leavecount').html(result);
-    //});
-
-    $(document).ready(function () {
-
-        $('#inputDate').change(function () {
-            //dateselect function call
-            setDateRange(inputDate.value)
-            //called function
-            function setDateRange(SetDate) {
-
-                $('#Days').html(function () {
-
-                    var currdate = new Date(SetDate);
-
-                    var startingDate = new Date(currdate);
-                    startingDate.setDate(startingDate.getDate() - 15);
-
-                    //alert(startingDate)
-
-                    var endingDate = new Date(currdate);
-                    endingDate.setDate(endingDate.getDate() + 15);
-
-                    // alert(endingDate)
-
-                    var date = new Date(startingDate);
-                    // alert(date)
-
-                    var result = "";
-
-                    var weekday = new Array(7);
-                    weekday[0] = "Sun";
-                    weekday[1] = "Mon";
-                    weekday[2] = "Tue";
-                    weekday[3] = "Wed";
-                    weekday[4] = "Thu";
-                    weekday[5] = "Fri";
-                    weekday[6] = "Sat";
-                    var n = weekday[date.getDay()];
-
-                    for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
-                        n = weekday[date.getDay()];
-                        // result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
-                        for (var j = 0; j < 1; j++) {
-
-                            // alert(n);
-                            if (n == "Sat" || n == "Sun") {
-
-                                // alert(n)
-                                result = result + "<div class='headerCellHoliday'>" + n.toUpperCase() + "</div>";
-                                //alert(result)
-                            }
-                            else {
-
-                                if (date == currdate) {
-                                    //alert(date)
-
-                                    result = result + "<div class='headerCellToday'>" + n.toUpperCase() + "</div>";
-                                    //alert(result)
-
-                                }
-                                else {
-                                    result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
-
-                                }
-                            }
-
-                        }
-                    }
-
-                    return result;
-
-                });
-                $('#Dates').html(function () {
-
-                    var currdate = new Date(SetDate);
-                    //alert(currdate)
-
-                    var startingDate = new Date(currdate);
-                    startingDate.setDate(startingDate.getDate() - 15);
-
-                    //alert(startingDate)
-
-                    var endingDate = new Date(currdate);
-                    endingDate.setDate(endingDate.getDate() + 15);
-
-                    // alert(endingDate)
-
-                    var date = new Date(startingDate);
-                    // alert(date)
-
-                    var result = "";
-
-                    var weekday = new Array(7);
-                    weekday[0] = "Sun";
-                    weekday[1] = "Mon";
-                    weekday[2] = "Tue";
-                    weekday[3] = "Wed";
-                    weekday[4] = "Thu";
-                    weekday[5] = "Fri";
-                    weekday[6] = "Sat";
-                    var n = weekday[date.getDay()];
-
-                    //  alert(n)
-
-
-                    //alert(date)
-
-                    for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
-                        n = weekday[date.getDay()];
-                        // result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
-                        for (var j = 0; j < 1; j++) {
-
-                            // alert(n);
-                            if (n == "Sat" || n == "Sun") {
-
-                                // alert(n)
-                                result = result + "<div class='headerCellHoliday'>" + date.getDate() + "</div>";
-                                //alert(result)
-                            }
-                            else {
-
-                                if (date == currdate) {
-                                    //alert(date)
-
-                                    result = result + "<div class='headerCellToday'>" + date.getDate() + "</div>";
-                                    //alert(result)
-
-                                }
-                                else {
-                                    result = result + "<div class='headerCell'>" + date.getDate() + "</div>";
-
-                                }
-                            }
-
-                        }
-                    }
-
-                    return result;
-
-                });
-                $('#Months').html(function () {
-
-                    var currdate = new Date(SetDate);
-                    //alert(currdate)
-
-                    var startingDate = new Date(currdate);
-                    startingDate.setDate(startingDate.getDate() - 15);
-
-                    //alert(startingDate)
-
-                    var endingDate = new Date(currdate);
-                    endingDate.setDate(endingDate.getDate() + 15);
-
-                    // alert(endingDate)
-
-                    var date = new Date(startingDate);
-                    // alert(date)
-
-                    var result = "";
-
-                    var weekday = new Array(7);
-                    weekday[0] = "Sun";
-                    weekday[1] = "Mon";
-                    weekday[2] = "Tue";
-                    weekday[3] = "Wed";
-                    weekday[4] = "Thu";
-                    weekday[5] = "Fri";
-                    weekday[6] = "Sat";
-                    var n = weekday[date.getDay()];
-
-                    var month = new Array(7);
-                    month[0] = "Jan";
-                    month[1] = "Feb";
-                    month[2] = "Mar";
-                    month[3] = "Apr";
-                    month[4] = "May";
-                    month[5] = "Jun";
-                    month[6] = "Jul";
-                    month[7] = "Aug";
-                    month[8] = "Sep";
-                    month[9] = "Oct";
-                    month[10] = "Nov";
-                    month[11] = "Dec";
-                    var m = month[date.getMonth()];
-                    //alert(m)
-
-
-                    //alert(date)
-
-                    for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
-                        n = weekday[date.getDay()];
-                        m = month[date.getMonth()];
-                        // result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
-                        for (var j = 0; j < 1; j++) {
-
-                            // alert(n);
-                            if (n == "Sat" || n == "Sun") {
-
-                                // alert(n)
-                                result = result + "<div class='headerCellHoliday'>" + m.toUpperCase() + "</div>";
-                                //alert(result)
-                            }
-                            else {
-
-                                if (date == currdate) {
-                                    //alert(date)
-
-                                    result = result + "<div class='headerCellToday'>" + m.toUpperCase() + "</div>";
-                                    //alert(result)
-
-                                }
-                                else {
-                                    result = result + "<div class='headerCell'>" + m.toUpperCase() + "</div>";
-
-                                }
-                            }
-
-                        }
-                    }
-
-                    return result;
-
-                });
-            }
-        });
-        resultString = "<div class='dropdown theme-dropdown clearfix'><ul id='LeaveMenu' class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'><li role='presentation' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#' >Vacation Leave </a></li><li role='presentation' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Sick Leave</a></li><li role='presentation' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Personal Leave</a></li><li role='presentation' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Marriage Leave</a></li><li role='presentation' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Custom Leave</a></li><li role='presentation' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Remove Selection</a></li></ul></div>";
-        //"<div class='dropdown theme-dropdown clearfix' aria-labelledby='dropdownMenu1'><div id='one' class='value1'  onclick='clickpopup(this);' >Record 1<div class='innervalue' style='display:none;' >d93fcb</div><div style='background-color:#d93fcb;height:25px;width:25px;'></div></div><br /><div  id='two' class='value2' onclick='clickpopup(this);'>Record 2<div class='innervalue' style='display:none;' >4568e6</div><div style='background-color:#4568e6;height:25px;width:25px;'></div></div><br /><div  id='two' class='value3' onclick='clickpopup(this);'>Record 3<div class='innervalue' style='display:none;' >3fa588</div><div style='background-color:#3fa588;height:25px;width:25px;'></div></div><br /><div  id='three' class='value4' onclick='clickpopup(this);'>Record 4<div class='innervalue' style='display:none;' >f0be73</div><div style='background-color:#f0be73;height:25px;width:25px;'></div></div><br /><div  id='five' class='value5' onclick='clickpopup(this);'>Record 5<div class='innervalue' style='display:none;' >9fdc6f</div><div style='background-color:#9fdc6f;height:25px;width:25px;'></div></div></div>";
-
-        $('.popupDiv').bind('click', function () {
-            selectedCellId = this.id;
-            //alert(selectedCellId);
-            var self = this;
-            $('#' + selectedCellId).html(resultString);
-                    
-
-        });
-
-        var count = $('.valueSet').length;
-        $(document).click(function () {
-            $('.leavecount').html(Count1);
-        });
-
-        $(document).mouseup(function () {
-            $('.dropdown').slideUp();
-        });
-    });
-
-
-</script>
-
+<script src="~/WebScript.js"></script>
 <style>
     .cell {
         width: 30px;
@@ -374,7 +41,7 @@
     }
 
     .cellcol {
-        width: 198px;
+        width:199px;
         height: 30px;
         float: left;
         border: 1px solid black;
@@ -422,7 +89,7 @@
         margin: .5px;
         font-size: .8em;
         text-align: center;
-        background-color: #f66037;
+        background-color: lightblue;
     }
 
     .headerCellHoliday {
@@ -433,6 +100,7 @@
         margin: .5px;
         font-size: .8em;
         text-align: center;
+        background-color: #b6ff00;
     }
 
     .dropdown {
@@ -506,7 +174,7 @@
         <div id="Days" style="border-spacing: 2px; margin-right: 10px; padding-top: 10px;">
         </div>
     </div>
-    <div id="dates1" style="float: left; margin: .5px; background-color: #; width: 1270px; color: black;">
+    <div id="dates1" style="float: left; margin: .5px; width: 1270px; color: black; border-top: 1px solid;">
         <div id="menu1" style="border-spacing: 2px; float: left; width: 100px;">
             <div id="menu1.1" class="cellrow" style="text-align: center; padding-top: 5px; font-size: 11.6px; font-weight: bolder; background-color: #3499ee;">
                 Employee Name
@@ -528,11 +196,10 @@
     </div>
 
 
-
     <div id="menu1" style="height: 300px; width: 100px; float: left;">
         @for (int employeeNum = 0; employeeNum < 10; employeeNum++)
         {                                       
-            <div id="Employee @employeeNum"  class="cellrow employeeName" style="background-color: #fa978a">
+            <div id="@employeeNum"  class="cellrow employeeName" style="background-color: #fa978a">@employeeNum
             </div>   
             
         }
@@ -540,7 +207,7 @@
     <div id="menu2" style="height: 300px; width: 100px; float: left;">
         @for (int d = 0; d < 10; d++)
         {                                       
-            <div id="managerName @d" class="cellrow" style="background-color: #fa978a">
+            <div id="@d" class="cellrow" style="background-color: #fa978a">@d
             </div>   
         }
 
@@ -548,38 +215,32 @@
     <div id="menu3" style="height: 300px; width: 107px; float: right;">
         @for (int f = 0; f < 10; f++)
         {                                       
-            <div id="totalLeaveCount @f" class="cellrow1 leavecount" style="background-color: #fbfc9e">
+            <div id="@f" class="leavecount cellrow1" style="background-color: #fbfc9e;font-size:medium;">
             </div>   
             
         }
     </div>
 
-
     <div>
         @for (int i = 0; i < 31; i++)
         {
-
             for (int j = 0; j < 10; j++)
-            {                                       
-           
-            <div id="Cell @i @j" class="cell popupDiv" style="float:left; background-color:#ffc9e9;"></div>
-
+            {
+            <div id="@i@j" class="cell popupDiv" style="float:left; background-color:#ffc9e9;"></div>
             }
         }
+
     </div>
-
-
-
 
     <div id="menu4" style="height: 30px; width: 1300px; bottom: 0; right: 0; left: 0; position: relative;">
 
-        <div class="cellcol" style="font-size: 18px; font-weight: bold; background-color: #0ff">
+        <div class="cellcol" style="font-size: 18px; font-weight: bold; background-color: #0ff;">
             Total
         </div>
         @for (int g = 0; g < 31; g++)
         {
-            <div id="cellColMenu4" class="cell ">
-                hello
+            <div id="@g" class="cell dailyLeaves" style="background-color:#f895cf;font-size:medium;">
+
             </div>   
         }
 
