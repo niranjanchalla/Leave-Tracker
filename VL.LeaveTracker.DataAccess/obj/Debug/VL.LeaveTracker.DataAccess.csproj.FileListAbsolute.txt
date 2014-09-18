@@ -5,3 +5,10 @@ C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\bin\D
 C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\obj\Debug\VL.LeaveTracker.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\obj\Debug\VL.LeaveTracker.DataAccess.dll
 C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.DataAccess\obj\Debug\VL.LeaveTracker.DataAccess.pdb
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.DataAccess\bin\Debug\VL.LeaveTracker.DataAccess.dll
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.DataAccess\bin\Debug\VL.LeaveTracker.DataAccess.pdb
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.DataAccess\bin\Debug\VL.LeaveTracker.Models.dll
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.DataAccess\bin\Debug\VL.LeaveTracker.Models.pdb
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.DataAccess\obj\Debug\VL.LeaveTracker.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.DataAccess\obj\Debug\VL.LeaveTracker.DataAccess.dll
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.DataAccess\obj\Debug\VL.LeaveTracker.DataAccess.pdb

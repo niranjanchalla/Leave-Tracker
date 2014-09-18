@@ -7,3 +7,12 @@ C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.Business\bin\Deb
 C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.Business\obj\Debug\VL.LeaveTracker.Business.csprojResolveAssemblyReference.cache
 C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.Business\obj\Debug\VL.LeaveTracker.Business.dll
 C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.Business\obj\Debug\VL.LeaveTracker.Business.pdb
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Business\bin\Debug\VL.LeaveTracker.Business.dll
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Business\bin\Debug\VL.LeaveTracker.Business.pdb
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Business\bin\Debug\VL.LeaveTracker.DataAccess.dll
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Business\bin\Debug\VL.LeaveTracker.Models.dll
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Business\bin\Debug\VL.LeaveTracker.DataAccess.pdb
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Business\bin\Debug\VL.LeaveTracker.Models.pdb
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Business\obj\Debug\VL.LeaveTracker.Business.csprojResolveAssemblyReference.cache
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Business\obj\Debug\VL.LeaveTracker.Business.dll
+C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Business\obj\Debug\VL.LeaveTracker.Business.pdb
