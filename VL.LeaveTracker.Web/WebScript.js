@@ -5,7 +5,8 @@ webshims.polyfill('forms forms-ext');
 var resultString;
 var selectedCellId;
 var $AppendText;
-
+var menu1ID;
+var menu2ID;
 function clickpopup(event) {
     //alert(selectedCellId);
     var divID = selectedCellId;
@@ -45,15 +46,15 @@ function clickpopup(event) {
             element = "";
             color = "ffc9e9";
             // $AppendText = '<div style="font-weight: bold;border: 0px solid #000;font-size: 2.0em;text-align:center;">' + element + '</div>';
-            $('#' + divID).html(resultString);
-            $('#' + divID).css('background-color', '#' + color);
-            $('#' + divID).removeClass('valueSet');
+            $('#' + divID + '.popupCell').html(resultString);
+            $('#' + divID + '.popupCell').css('background-color', '#' + color);
+            $('#' + divID + '.popupCell').removeClass('valueSet');
         }
         else {
             $AppendText = '<div style="font-weight: bold;border: 0px solid #000;font-size: 2.0em;text-align:center;">' + element + '</div>';
-            $('#' + divID).html($AppendText);
-            $('#' + divID).css('background-color', '#' + color);
-            $('#' + divID).addClass('valueSet');
+            $('#' + divID + '.popupCell').html($AppendText);
+            $('#' + divID + '.popupCell').css('background-color', '#' + color);
+            $('#' + divID + '.popupCell').addClass('valueSet');
 
 
         }
@@ -79,7 +80,7 @@ function Leavecounts(Lid) {
                 var id = $('.cell').attr("id").charAt(1) + m;
             }
 
-            if ($('#' + id).hasClass("valueSet")) {
+            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                 count = count + 1;
                 //alert(count);
             }
@@ -94,7 +95,7 @@ function Leavecounts(Lid) {
                 var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                if ($('#' + id).hasClass("valueSet")) {
+                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                     count = count + 1;
                     //alert(count);
                 }
@@ -109,7 +110,7 @@ function Leavecounts(Lid) {
                     var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                    if ($('#' + id).hasClass("valueSet")) {
+                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                         count = count + 1;
                         //alert(count);
                     }
@@ -124,7 +125,7 @@ function Leavecounts(Lid) {
                         var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                        if ($('#' + id).hasClass("valueSet")) {
+                        if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                             count = count + 1;
                             //alert(count);
                         }
@@ -139,7 +140,7 @@ function Leavecounts(Lid) {
                             var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                            if ($('#' + id).hasClass("valueSet")) {
+                            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                 count = count + 1;
                                 //alert(count);
                             }
@@ -154,7 +155,7 @@ function Leavecounts(Lid) {
                                 var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                if ($('#' + id).hasClass("valueSet")) {
+                                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                     count = count + 1;
                                     //alert(count);
                                 }
@@ -168,7 +169,7 @@ function Leavecounts(Lid) {
 
                                     var id = $('.cell').attr("id").charAt(2) + m;
 
-                                    if ($('#' + id).hasClass("valueSet")) {
+                                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                         count = count + 1;
                                         //alert(count);
                                     }
@@ -182,7 +183,7 @@ function Leavecounts(Lid) {
 
                                         var id = $('.cell').attr("id").charAt(2) + m;
 
-                                        if ($('#' + id).hasClass("valueSet")) {
+                                        if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                             count = count + 1;
                                             //alert(count);
                                         }
@@ -196,7 +197,7 @@ function Leavecounts(Lid) {
 
                                             var id = $('.cell').attr("id").charAt(2) + m;
 
-                                            if ($('#' + id).hasClass("valueSet")) {
+                                            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                 count = count + 1;
                                                 //alert(count);
                                             }
@@ -210,7 +211,7 @@ function Leavecounts(Lid) {
 
                                                 var id = $('.cell').attr("id").charAt(2) + m;
 
-                                                if ($('#' + id).hasClass("valueSet")) {
+                                                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                     count = count + 1;
                                                     //alert(count);
                                                 }
@@ -240,7 +241,7 @@ function DailyLeavecounts(dLid) {
                 var id = $('.cell').attr("id").charAt(2) + m;
             }
 
-            if ($('#' + id).hasClass("valueSet")) {
+            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                 Dailycount = Dailycount + 1;
                 //alert(count);
 
@@ -257,7 +258,7 @@ function DailyLeavecounts(dLid) {
                     var id = $('.cell').attr("id").charAt(2) + m;
                 }
 
-                if ($('#' + id).hasClass("valueSet")) {
+                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                     Dailycount = Dailycount + 1;
                     //alert(count);
 
@@ -274,7 +275,7 @@ function DailyLeavecounts(dLid) {
                         var id = $('.cell').attr("id").charAt(2) + m;
                     }
 
-                    if ($('#' + id).hasClass("valueSet")) {
+                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                         Dailycount = Dailycount + 1;
                         //alert(count);
 
@@ -291,7 +292,7 @@ function DailyLeavecounts(dLid) {
                             var id = $('.cell').attr("id").charAt(2) + m;
                         }
 
-                        if ($('#' + id).hasClass("valueSet")) {
+                        if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                             Dailycount = Dailycount + 1;
                             //alert(count);
 
@@ -308,7 +309,7 @@ function DailyLeavecounts(dLid) {
                                 var id = $('.cell').attr("id").charAt(2) + m;
                             }
 
-                            if ($('#' + id).hasClass("valueSet")) {
+                            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                 Dailycount = Dailycount + 1;
                                 //alert(count);
 
@@ -325,7 +326,7 @@ function DailyLeavecounts(dLid) {
                                     var id = $('.cell').attr("id").charAt(2) + m;
                                 }
 
-                                if ($('#' + id).hasClass("valueSet")) {
+                                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                     Dailycount = Dailycount + 1;
                                     //alert(count);
 
@@ -342,7 +343,7 @@ function DailyLeavecounts(dLid) {
                                         var id = $('.cell').attr("id").charAt(2) + m;
                                     }
 
-                                    if ($('#' + id).hasClass("valueSet")) {
+                                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                         Dailycount = Dailycount + 1;
                                         //alert(count);
 
@@ -359,7 +360,7 @@ function DailyLeavecounts(dLid) {
                                             var id = $('.cell').attr("id").charAt(2) + m;
                                         }
 
-                                        if ($('#' + id).hasClass("valueSet")) {
+                                        if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                             Dailycount = Dailycount + 1;
                                             //alert(count);
 
@@ -376,7 +377,7 @@ function DailyLeavecounts(dLid) {
                                                 var id = $('.cell').attr("id").charAt(2) + m;
                                             }
 
-                                            if ($('#' + id).hasClass("valueSet")) {
+                                            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                 Dailycount = Dailycount + 1;
                                                 //alert(count);
 
@@ -393,7 +394,7 @@ function DailyLeavecounts(dLid) {
                                                     var id = $('.cell').attr("id").charAt(2) + m;
                                                 }
 
-                                                if ($('#' + id).hasClass("valueSet")) {
+                                                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                     Dailycount = Dailycount + 1;
                                                     //alert(count);
 
@@ -408,7 +409,7 @@ function DailyLeavecounts(dLid) {
                                                     var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                    if ($('#' + id).hasClass("valueSet")) {
+                                                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                         Dailycount = Dailycount + 1;
                                                         //alert(count);
 
@@ -423,7 +424,7 @@ function DailyLeavecounts(dLid) {
                                                         var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                        if ($('#' + id).hasClass("valueSet")) {
+                                                        if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                             Dailycount = Dailycount + 1;
                                                             //alert(count);
 
@@ -438,7 +439,7 @@ function DailyLeavecounts(dLid) {
                                                             var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                            if ($('#' + id).hasClass("valueSet")) {
+                                                            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                 Dailycount = Dailycount + 1;
                                                                 //alert(count);
                                                             }
@@ -452,7 +453,7 @@ function DailyLeavecounts(dLid) {
                                                                 var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                if ($('#' + id).hasClass("valueSet")) {
+                                                                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                     Dailycount = Dailycount + 1;
                                                                     //alert(count);
                                                                 }
@@ -466,7 +467,7 @@ function DailyLeavecounts(dLid) {
                                                                     var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                    if ($('#' + id).hasClass("valueSet")) {
+                                                                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                         Dailycount = Dailycount + 1;
                                                                         //alert(count);
                                                                     }
@@ -480,7 +481,7 @@ function DailyLeavecounts(dLid) {
                                                                         var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                        if ($('#' + id).hasClass("valueSet")) {
+                                                                        if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                             Dailycount = Dailycount + 1;
                                                                             //alert(count);
                                                                         }
@@ -494,7 +495,7 @@ function DailyLeavecounts(dLid) {
                                                                             var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                            if ($('#' + id).hasClass("valueSet")) {
+                                                                            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                 Dailycount = Dailycount + 1;
                                                                                 //alert(count);
                                                                             }
@@ -508,7 +509,7 @@ function DailyLeavecounts(dLid) {
                                                                                 var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                if ($('#' + id).hasClass("valueSet")) {
+                                                                                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                     Dailycount = Dailycount + 1;
                                                                                     //alert(count);
                                                                                 }
@@ -522,7 +523,7 @@ function DailyLeavecounts(dLid) {
                                                                                     var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                    if ($('#' + id).hasClass("valueSet")) {
+                                                                                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                         Dailycount = Dailycount + 1;
                                                                                         //alert(count);
                                                                                     }
@@ -535,7 +536,7 @@ function DailyLeavecounts(dLid) {
 
                                                                                         var id = $('.cell').attr("id").charAt(2) + m;
 
-                                                                                        if ($('#' + id).hasClass("valueSet")) {
+                                                                                        if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                             Dailycount = Dailycount + 1;
                                                                                             //alert(count);
                                                                                         }
@@ -549,7 +550,7 @@ function DailyLeavecounts(dLid) {
                                                                                             var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                            if ($('#' + id).hasClass("valueSet")) {
+                                                                                            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                 Dailycount = Dailycount + 1;
                                                                                                 //alert(count);
                                                                                             }
@@ -563,7 +564,7 @@ function DailyLeavecounts(dLid) {
                                                                                                 var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                if ($('#' + id).hasClass("valueSet")) {
+                                                                                                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                     Dailycount = Dailycount + 1;
                                                                                                     //alert(count);
                                                                                                 }
@@ -577,7 +578,7 @@ function DailyLeavecounts(dLid) {
                                                                                                     var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                    if ($('#' + id).hasClass("valueSet")) {
+                                                                                                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                         Dailycount = Dailycount + 1;
                                                                                                         //alert(count);
                                                                                                     }
@@ -591,7 +592,7 @@ function DailyLeavecounts(dLid) {
                                                                                                         var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                        if ($('#' + id).hasClass("valueSet")) {
+                                                                                                        if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                             Dailycount = Dailycount + 1;
                                                                                                             //alert(count);
                                                                                                         }
@@ -605,7 +606,7 @@ function DailyLeavecounts(dLid) {
                                                                                                             var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                            if ($('#' + id).hasClass("valueSet")) {
+                                                                                                            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                                 Dailycount = Dailycount + 1;
                                                                                                                 //alert(count);
                                                                                                             }
@@ -619,7 +620,7 @@ function DailyLeavecounts(dLid) {
                                                                                                                 var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                                if ($('#' + id).hasClass("valueSet")) {
+                                                                                                                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                                     Dailycount = Dailycount + 1;
                                                                                                                     //alert(count);
                                                                                                                 }
@@ -633,7 +634,7 @@ function DailyLeavecounts(dLid) {
                                                                                                                     var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                                    if ($('#' + id).hasClass("valueSet")) {
+                                                                                                                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                                         Dailycount = Dailycount + 1;
                                                                                                                         //alert(count);
                                                                                                                     }
@@ -647,7 +648,7 @@ function DailyLeavecounts(dLid) {
                                                                                                                         var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                                        if ($('#' + id).hasClass("valueSet")) {
+                                                                                                                        if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                                             Dailycount = Dailycount + 1;
                                                                                                                             //alert(count);
                                                                                                                         }
@@ -661,7 +662,7 @@ function DailyLeavecounts(dLid) {
                                                                                                                             var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                                            if ($('#' + id).hasClass("valueSet")) {
+                                                                                                                            if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                                                 Dailycount = Dailycount + 1;
                                                                                                                                 //alert(count);
                                                                                                                             }
@@ -675,7 +676,7 @@ function DailyLeavecounts(dLid) {
                                                                                                                                 var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                                                if ($('#' + id).hasClass("valueSet")) {
+                                                                                                                                if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                                                     Dailycount = Dailycount + 1;
                                                                                                                                     //alert(count);
                                                                                                                                 }
@@ -689,7 +690,7 @@ function DailyLeavecounts(dLid) {
                                                                                                                                     var id = $('.cell').attr("id").charAt(2) + m;
 
 
-                                                                                                                                    if ($('#' + id).hasClass("valueSet")) {
+                                                                                                                                    if ($('#' + id + '.popupCell').hasClass("valueSet")) {
                                                                                                                                         Dailycount = Dailycount + 1;
                                                                                                                                         //alert(count);
                                                                                                                                     }
@@ -741,14 +742,8 @@ function setDateRange(SetDate) {
 
         var endingDate = new Date(currdate);
         endingDate.setDate(endingDate.getDate() + 15);
-
-        // alert(endingDate)
-
-        var date = new Date(startingDate);
-        // alert(date)
-
         var result = "";
-
+        var date = new Date(startingDate);
         var weekday = new Array(7);
         weekday[0] = "Sun";
         weekday[1] = "Mon";
@@ -761,37 +756,22 @@ function setDateRange(SetDate) {
 
         for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
             n = weekday[date.getDay()];
-            // result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
             for (var j = 0; j < 1; j++) {
-
-                // alert(n);
                 if (n == "Sat" || n == "Sun") {
-
-                    // alert(n)
                     result = result + "<div class='headerCellHoliday'>" + n.toUpperCase() + "</div>";
-                    //alert(result)
-
                 }
                 else {
-
-                    if (date == currdate) {
-                        //alert(date)
-
+                    if (date == currdate)
+                    {
                         result = result + "<div class='headerCellToday'>" + n.toUpperCase() + "</div>";
-                        //alert(result)
-
                     }
                     else {
                         result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
-
                     }
                 }
-
             }
         }
-
-        return result;
-
+       return result;
     });
     $('#Dates').html(function () {
 
@@ -958,27 +938,203 @@ $(document).ready(function () {
         } else {
             setDateRange(inputDate.value)
         }
-        
-     });
+
+    });
 
     resultString = "<div class='dropdown theme-dropdown clearfix'><ul id='LeaveMenu' class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'><li role='presentation' id ='1' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#' >Vacation Leave </a></li><li role='presentation' id = '2' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Sick Leave</a></li><li role='presentation' id = '3' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Personal Leave</a></li><li role='presentation' id = '4' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Marriage Leave</a></li><li role='presentation' id = '5' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Custom Leave</a></li><li role='presentation' id = '6' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Remove Selection</a></li></ul></div>";
     //"<div class='dropdown theme-dropdown clearfix' aria-labelledby='dropdownMenu1'><div id='one' class='value1'  onclick='clickpopup(this);' >Record 1<div class='innervalue' style='display:none;' >d93fcb</div><div style='background-color:#d93fcb;height:25px;width:25px;'></div></div><br /><div  id='two' class='value2' onclick='clickpopup(this);'>Record 2<div class='innervalue' style='display:none;' >4568e6</div><div style='background-color:#4568e6;height:25px;width:25px;'></div></div><br /><div  id='two' class='value3' onclick='clickpopup(this);'>Record 3<div class='innervalue' style='display:none;' >3fa588</div><div style='background-color:#3fa588;height:25px;width:25px;'></div></div><br /><div  id='three' class='value4' onclick='clickpopup(this);'>Record 4<div class='innervalue' style='display:none;' >f0be73</div><div style='background-color:#f0be73;height:25px;width:25px;'></div></div><br /><div  id='five' class='value5' onclick='clickpopup(this);'>Record 5<div class='innervalue' style='display:none;' >9fdc6f</div><div style='background-color:#9fdc6f;height:25px;width:25px;'></div></div></div>";
-    $('.popupDiv').bind('click', function () {
+    $('.popupCell').bind('click', function () {
         selectedCellId = this.id;
         // alert(selectedCellId);
         var self = this;
-        $('#' + selectedCellId).html(resultString);
+        $('#' + selectedCellId + '.popupCell').html(resultString);
     });
 
     for (var l = 15; l < 295; l = l + 31) {
-        var id = $('.cell').attr("id").charAt(2) + l;
-        $('#' + id).css('background-color', 'lightblue');
+        var id = $('.cell').attr("id").charAt(3) + l;
+        $('#' + id + '.popupCell').css('background-color', 'lightblue');
     }
     var getId = $('.dailyLeaves').attr("id").charAt(1) + 15;
     //alert(getId);;
     if (getId == 15) {
         $('#' + getId + '.dailyLeaves').css('background-color', 'lightblue');
     }
+    for (var i = 11; i < 31; i++) {
+
+        menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+        $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+        menu2ID = $('.managerName').attr("id").charAt(2) + i;
+        $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
+    }
+    $('#stratingPage').click(function () {
+        for (var i = 0; i < 30; i++) {
+            if (i < 10) {
+                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+                $('#' + menu1ID + '.employeeName').css('position', 'relative');
+
+                menu2ID = $('.managerName').attr("id").charAt(1) + i;
+                $('#' + menu2ID + '.managerName').css('position', 'relative');
+
+            } else {
+                if (i < 20) {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
+                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
+                    $('#' + menu2ID + '.managerName').css('position', 'relative');
+                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
+                }
+                else {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
+                }
+
+            }
+
+        }
+    });
+    $('#firstPage').click(function () {
+        for (var i = 0; i < 30; i++) {
+            if (i < 10) {
+                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+                $('#' + menu1ID + '.employeeName').css('position', 'relative');
+
+                menu2ID = $('.managerName').attr("id").charAt(1) + i;
+                $('#' + menu2ID + '.managerName').css('position', 'relative');
+
+            } else {
+                if (i < 20) {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
+                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
+                    $('#' + menu2ID + '.managerName').css('position', 'relative');
+                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
+                }
+                else {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
+                }
+
+            }
+
+        }
+    });
+    $('#secondPage').click(function () {
+        //alert("Hi");
+        for (var i = 0; i < 30; i++) {
+            if (i < 10) {
+                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+                $('#' + menu1ID + '.employeeName').css('position', 'absolute');
+
+                menu2ID = $('.managerName').attr("id").charAt(1) + i;
+                $('#' + menu2ID + '.managerName').css('position', 'absolute');
+
+            } else {
+                if (i < 20) {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'visible');
+                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
+                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'visible');
+                    $('#' + menu2ID + '.managerName').css('position', 'relative');
+                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
+                }
+                else {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
+                }
+
+            }
+
+        }
+    });
+    $('#thirdPage').click(function () {
+        //alert("Hi");
+        for (var i = 0; i < 30; i++) {
+            if (i < 20) {
+                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+                $('#' + menu1ID + '.employeeName').css('position', 'absolute');
+
+                menu2ID = $('.managerName').attr("id").charAt(1) + i;
+                $('#' + menu2ID + '.managerName').css('position', 'absolute');
+
+            } else {
+                if (i < 30) {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'visible');
+                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
+                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'visible');
+                    $('#' + menu2ID + '.managerName').css('position', 'relative');
+                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
+                }
+                else {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
+                }
+
+            }
+
+        }
+    });
+    $('#lastPage').click(function () {
+        //alert("Hi");
+        for (var i = 0; i < 30; i++) {
+            if (i < 20) {
+                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+                $('#' + menu1ID + '.employeeName').css('position', 'absolute');
+
+                menu2ID = $('.managerName').attr("id").charAt(1) + i;
+                $('#' + menu2ID + '.managerName').css('position', 'absolute');
+
+            } else {
+                if (i < 30) {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'visible');
+                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
+                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'visible');
+                    $('#' + menu2ID + '.managerName').css('position', 'relative');
+                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
+                }
+                else {
+                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
+                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
+                }
+
+            }
+
+        }
+    });
 
 });
 
@@ -986,8 +1142,8 @@ $(document).mouseup(function () {
     $('.dropdown').slideUp();
 
     for (var l = 15; l < 295; l = l + 31) {
-        var id = $('.cell').attr("id").charAt(2) + l;
-        $('#' + id).css('background-color', 'lightblue');
+        var id = $('.popupCell').attr("id").charAt(2) + l;
+        $('#' + id + '.popupCell').css('background-color', 'lightblue');
     }
     for (var e = 0; e < 10; e++) {
         var LeaveCellID = $('.leavecount').attr("id").charAt(1) + e;
@@ -1003,5 +1159,6 @@ $(document).mouseup(function () {
     }
 
 });
+
 
 

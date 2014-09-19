@@ -3,30 +3,28 @@
 }
 
 <head>
-
     <title></title>
     <!-- Bootstrap core CSS -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="~/IndexStyle.css" rel="stylesheet" />
 </head>
 <script src="~/Scripts/jquery-2.1.1.js"></script>
 <script src="~/Scripts/jquery.popupover.js"></script>
 <script src="~/Scripts/jquery-2.1.1.min.js"></script>
 <script src="~/Scripts/jquery-ui-1.8.24.js"></script>
 <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/IndexStyle.css" rel="stylesheet" />
 <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
 <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
 <script src="~/WebScript.js"></script>
 
-
-<div style="text-align: right; padding-bottom: 10px; padding-top: 2em;">
+<div style="text-align: center;width:1330px;">
     Select Date: 
-    <input type="date" id="inputDate" style="box-sizing: padding-box;">
+    <input type="date" id="inputDate" style="">
 </div>
 
-<div class="container" style="height: 450px; padding-top: 5px; background-color: #d3dce0;">
+<div class="jumbotron" style="height: 480px; background-color: #d3dce0;width:1330px;float:left;color:black;">
     <div id="months1" style="float: left; margin: .5px; background-color: #d3dce0; width: 1270px; color: black; height: 30px;">
         <div id="menu1" style="border-spacing: 2px; float: left; width: 100px; border: 0px;">
             @for (int a = 0; a < 1; a++)
@@ -83,12 +81,12 @@
     </div>
     <div id="dates1" style="float: left; margin: .5px; width: 1270px; color: black; border-top: 1px solid;">
         <div id="menu1" style="border-spacing: 2px; float: left; width: 100px;">
-            <div id="menu1.1" class="cellrow" style="text-align: center; padding-top: 5px; font-size: 11.6px; font-weight: bolder; background-color: #3499ee;">
+            <div id="menu1.1" class="cellrow" style="text-align: center; padding-top: 5px; font-size: 11.4px; font-weight: bolder; background-color: #3499ee;">
                 Employee Name
             </div>
         </div>
         <div id="menu2" style="border-spacing: 2px; float: left; width: 100px;">
-            <div id="menu2.1" class="cellrow" style="text-align: center; padding-top: 5px; font-size: 11.6px; font-weight: bold; background-color: #3499ee;">
+            <div id="menu2.1" class="cellrow" style="text-align: center; padding-top: 5px; font-size: 11.4px; font-weight: bold; background-color: #3499ee;">
                 Manager Name
             </div>
         </div>
@@ -102,19 +100,18 @@
         </div>
     </div>
 
-
-    <div id="menu1" style="height: 300px; width: 100px; float: left;">
-        @for (int employeeNum = 0; employeeNum < 10; employeeNum++)
+    <div  id ="menu1" style="height: 300px; width: 100px; float: left;">
+        @for (int employeeNum = 0; employeeNum < 30; employeeNum++)
         {                                       
-            <div id="@employeeNum"  class="cellrow employeeName" style="background-color: #fa978a">@employeeNum
+            <div id="@employeeNum"  class="employeeName cellrow" style="background-color: #fa978a;color:black;">@employeeNum
             </div>   
             
         }
     </div>
     <div id="menu2" style="height: 300px; width: 100px; float: left;">
-        @for (int d = 0; d < 10; d++)
+        @for (int managerNum = 0; managerNum < 30; managerNum++)
         {                                       
-            <div id="@d" class="cellrow" style="background-color: #fa978a">@d
+            <div id="@managerNum" class="managerName cellrow" style="background-color: #fa978a;color:black;">@managerNum
             </div>   
         }
 
@@ -122,34 +119,39 @@
     <div id="menu3" style="height: 300px; width: 107px; float: right;">
         @for (int f = 0; f < 10; f++)
         {                                       
-            <div id="@f" class="leavecount cellrow1" style="background-color: #fbfc9e;font-size:medium;">
+            <div id="@f" class="leavecount cellrow1" style="background-color: #fbfc9e;font-size:medium;color:black;">@f
             </div>   
             
         }
     </div>
 
-    <div>
-        @for (int i = 0; i < 31; i++)
-        {
-            for (int j = 0; j < 10; j++)
+    <table>
+        <tr>
+            @for (int i = 0; i < 31; i++)
             {
-            <div id="@i@j" class="cell popupDiv" style="float:left; background-color:#ffc9e9;"></div>
+                for (int j = 0; j < 10; j++)
+                {
+                <td id="@i@j" class="cell popupCell" style="float:left; background-color:#ffc9e9;color:black;">@i@j</td>
+                }
             }
-        }
-
-    </div>
-
-    <div id="menu4" style="height: 30px; width: 1300px; bottom: 0; right: 0; left: 0; position: relative;">
+        </tr>
+    </table>
+    <div id="menu4" style="height: 30px; width: 1300px; bottom: 0; right: 0; left: 0; position: relative;color:black;">
 
         <div class="cellcol" style="font-size: 18px; font-weight: bold; background-color: #0ff;">
             Total
         </div>
         @for (int g = 0; g < 31; g++)
         {
-            <div id="@g" class="cell dailyLeaves" style="background-color:#f895cf;font-size:medium;">
+            <div id="@g" class="cell dailyLeaves" style="background-color:#f895cf;font-size:medium;color:black;">@g
 
             </div>   
         }
 
     </div>
+</div>
+ 
+
+<div class="Pages" id="pageId">
+<a href="#" id="stratingPage" class="startingPageClass"><<</a>  <a href="#" id="firstPage" class="badge firstPageClass">0</a>  <a href="#" class="badge secondPageClass" id="secondPage">1</a>   <a href="#" id="thirdPage" class="badge thirdPageClass">2</a>   <a href="#" id="lastPage" class="lastPageClass">>></a>
 </div>
