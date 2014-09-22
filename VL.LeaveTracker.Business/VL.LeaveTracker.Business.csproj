@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{73760DF4-2EEF-41C1-8530-36D592201BB0}</ProjectGuid>
+    <ProjectGuid>{A9F6AF5B-7A1E-4117-B473-0B3FF884D808}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VL.LeaveTracker.Business</RootNamespace>
-    <AssemblyName>VL.LeaveTracker.Business</AssemblyName>
+    <RootNamespace>Vl.LeaveTracker.Business</RootNamespace>
+    <AssemblyName>Vl.LeaveTracker.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,17 +46,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseBusiness.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="EmployeedetailsB.cs" />
+    <Compile Include="EntityModelConversions.cs" />
+    <Compile Include="IBaseBusiness.cs" />
+    <Compile Include="IEmployeeDetailsB.cs" />
+    <Compile Include="ILeaveTypeB.cs" />
+    <Compile Include="IMainB.cs" />
+    <Compile Include="IManagerB.cs" />
+    <Compile Include="IStatusB.cs" />
+    <Compile Include="LeaveTypeB.cs" />
+    <Compile Include="MainB.cs" />
+    <Compile Include="ManagerB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusB.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VL.LeaveTracker.DataAccess\VL.LeaveTracker.DataAccess.csproj">
-      <Project>{b2d4870f-1fdf-4687-8ba2-debfbc5f72cb}</Project>
-      <Name>VL.LeaveTracker.DataAccess</Name>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vl.LeaveTracker.DataAccess\Vl.LeaveTracker.DataAccess.csproj">
+      <Project>{6a07f45c-100c-42be-bce4-23700467e285}</Project>
+      <Name>Vl.LeaveTracker.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VL.LeaveTracker.Models\VL.LeaveTracker.Models.csproj">
-      <Project>{6f327d96-a785-41a8-9065-0771fcea0377}</Project>
-      <Name>VL.LeaveTracker.Models</Name>
+    <ProjectReference Include="..\Vl.LeaveTracker.Model\Vl.LeaveTracker.Models.csproj">
+      <Project>{cf081a54-99cb-4a7e-8e1a-bbc771d617ad}</Project>
+      <Name>Vl.LeaveTracker.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vl.LeaveTracker.Repository\Vl.LeaveTracker.Repository.csproj">
+      <Project>{9430e975-4c42-40bb-9f5b-a364307d4c10}</Project>
+      <Name>Vl.LeaveTracker.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

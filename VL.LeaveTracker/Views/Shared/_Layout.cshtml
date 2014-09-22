@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Leave tracker</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" style="float: left;">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @* <img src="~/Images/ValueLabs_Logo.gif" align="left" height="50" width="120" />*@
+                    <div class="navbar-brand" style="text-align: left; font-size: 25px;">Leave Tracker</div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav" style="float: right; height: 80px;">
+                        <p>
+                            <li style="color: #b6ff00; padding-left: 10px;">Hello,<b>@User.Identity.Name !</b></li>
+                        </p>
+                        <p>
+                            <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                        </p>
+
+
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+
+
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer style="width:1330px;">
+        <div class="content-wrapper">
+            <div class="float-right">
+                @*<img src="~/Images/ValueLabs_Logo.gif" align="center" height="35" width="80" />*@
+
+                <p>
+                    &copy; @DateTime.Now.Year - Company Name@*Value Labs*@
+                </p>
+
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

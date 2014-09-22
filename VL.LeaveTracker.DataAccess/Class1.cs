@@ -4,15 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
-
-namespace VL.LeaveTracker.DataAccess
+namespace Vl.LeaveTracker.DataAccess
 {
-    public class class1
+    public class Class1
     {
-
-      
-
     }
 }

@@ -1,2 +1,0 @@
-C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.Web\obj\Debug\VL.LeaveTracker.Web.csprojResolveAssemblyReference.cache
-C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Web\obj\Debug\VL.LeaveTracker.Web.csprojResolveAssemblyReference.cache

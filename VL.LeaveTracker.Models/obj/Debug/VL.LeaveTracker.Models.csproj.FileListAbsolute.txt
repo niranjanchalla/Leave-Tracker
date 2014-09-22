@@ -1,8 +1,0 @@
-C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.Models\bin\Debug\VL.LeaveTracker.Models.dll
-C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.Models\bin\Debug\VL.LeaveTracker.Models.pdb
-C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.Models\obj\Debug\VL.LeaveTracker.Models.dll
-C:\Users\sgarsha\Documents\GitHub\Leave-Tracker\VL.LeaveTracker.Models\obj\Debug\VL.LeaveTracker.Models.pdb
-C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Models\bin\Debug\VL.LeaveTracker.Models.dll
-C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Models\bin\Debug\VL.LeaveTracker.Models.pdb
-C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Models\obj\Debug\VL.LeaveTracker.Models.dll
-C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\VL.LeaveTracker.Models\obj\Debug\VL.LeaveTracker.Models.pdb

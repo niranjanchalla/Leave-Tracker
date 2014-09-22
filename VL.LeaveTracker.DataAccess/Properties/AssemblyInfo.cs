@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VL.LeaveTracker.DataAccess")]
+[assembly: AssemblyTitle("Vl.LeaveTracker.DataAccess")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VL.LeaveTracker.DataAccess")]
+[assembly: AssemblyProduct("Vl.LeaveTracker.DataAccess")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1284b384-8422-4209-a1f0-d633fc4123c1")]
+[assembly: Guid("644b0a20-3515-48f6-aec5-29f6613d06f7")]
 
 // Version information for an assembly consists of the following four values:
 //

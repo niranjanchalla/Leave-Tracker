@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VL.LeaveTracker.Business
+namespace Vl.LeaveTracker.Business
 {
     public class Class1
     {
