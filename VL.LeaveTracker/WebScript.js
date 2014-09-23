@@ -793,7 +793,7 @@ function setDateRange(SetDate) {
                 if (n == "Sat" || n == "Sun") {
 
                     // alert(n)
-                    result = result + "<div class='headerCellHoliday'>" + date.getDate() + "</div>";
+                    result = result + "<div id='cdate' class='date headerCellHoliday'>" + date.getDate() + "</div>";
                     //alert(result)
 
                 }
@@ -802,12 +802,12 @@ function setDateRange(SetDate) {
                     if (date == currdate) {
                         //alert(date)
 
-                        result = result + "<div id='cdate' class='headerCellToday'>" + date.getDate() + "</div>";
+                        result = result + "<div id='cdate' class='date headerCellToday'>" + date.getDate() + "</div>";
                         //alert(result)
 
                     }
                     else {
-                        result = result + "<div class='headerCell'>" + date.getDate() + "</div>";
+                        result = result + "<div id='cdate' class='date headerCell'>" + date.getDate() + "</div>";
 
                     }
                 }
@@ -904,6 +904,15 @@ function setDateRange(SetDate) {
     });
 }
 
+function getDateId() {
+
+    var currentCellDate = new Date(currdate);
+    currentCellDate.setDate(currentCellDate.getDate() - 15);
+    alert(currentCellDate);
+    //var LeaveType = row < Model.LeaveTypes.Count ? Model.LeaveTypes[row].Ltype : string.Empty;
+    //var cellDetails =html5(Model.LeaveDetails[empId].First( item => item.LeaveFrom >= currentCellDate && item.LeaveTo <= currentCellDate).LeaveTypeId)
+}
+
 
 $(document).ready(function () {
     setDateRange(new Date());
@@ -914,7 +923,7 @@ $(document).ready(function () {
         } else {
             setDateRange(inputDate.value)
         }
-
+       
     });
 
     resultString = "<div class='dropdown theme-dropdown clearfix'><ul id='LeaveMenu' class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'><li role='presentation' id ='1' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#' >Vacation Leave </a></li><li role='presentation' id = '2' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Sick Leave</a></li><li role='presentation' id = '3' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Personal Leave</a></li><li role='presentation' id = '4' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Marriage Leave</a></li><li role='presentation' id = '5' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Custom Leave</a></li><li role='presentation' id = '6' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Remove Selection</a></li></ul></div>";
@@ -940,183 +949,6 @@ $(document).ready(function () {
     if (getId == 15) {
         $('#' + getId + '.dailyLeaves').css('background-color', 'lightblue');
     }
-    for (var i = 11; i < 31; i++) {
-
-        menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-        $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
-
-        menu2ID = $('.managerName').attr("id").charAt(2) + i;
-        $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
-    }
-    $('#stratingPage').click(function () {
-        for (var i = 0; i < 30; i++) {
-            if (i < 10) {
-                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
-                $('#' + menu1ID + '.employeeName').css('position', 'relative');
-
-                menu2ID = $('.managerName').attr("id").charAt(1) + i;
-                $('#' + menu2ID + '.managerName').css('position', 'relative');
-
-            } else {
-                if (i < 20) {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
-                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
-                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
-                    $('#' + menu2ID + '.managerName').css('position', 'relative');
-                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
-                }
-                else {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
-                }
-
-            }
-
-        }
-    });
-    $('#firstPage').click(function () {
-        for (var i = 0; i < 30; i++) {
-            if (i < 10) {
-                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
-                $('#' + menu1ID + '.employeeName').css('position', 'relative');
-
-                menu2ID = $('.managerName').attr("id").charAt(1) + i;
-                $('#' + menu2ID + '.managerName').css('position', 'relative');
-
-            } else {
-                if (i < 20) {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
-                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
-                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
-                    $('#' + menu2ID + '.managerName').css('position', 'relative');
-                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
-                }
-                else {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
-                }
-
-            }
-
-        }
-    });
-    $('#secondPage').click(function () {
-        //alert("Hi");
-        for (var i = 0; i < 30; i++) {
-            if (i < 10) {
-                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
-                $('#' + menu1ID + '.employeeName').css('position', 'absolute');
-
-                menu2ID = $('.managerName').attr("id").charAt(1) + i;
-                $('#' + menu2ID + '.managerName').css('position', 'absolute');
-
-            } else {
-                if (i < 20) {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'visible');
-                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
-                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'visible');
-                    $('#' + menu2ID + '.managerName').css('position', 'relative');
-                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
-                }
-                else {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
-                }
-
-            }
-
-        }
-    });
-    $('#thirdPage').click(function () {
-        //alert("Hi");
-        for (var i = 0; i < 30; i++) {
-            if (i < 20) {
-                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
-                $('#' + menu1ID + '.employeeName').css('position', 'absolute');
-
-                menu2ID = $('.managerName').attr("id").charAt(1) + i;
-                $('#' + menu2ID + '.managerName').css('position', 'absolute');
-
-            } else {
-                if (i < 30) {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'visible');
-                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
-                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'visible');
-                    $('#' + menu2ID + '.managerName').css('position', 'relative');
-                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
-                }
-                else {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
-                }
-
-            }
-
-        }
-    });
-    $('#lastPage').click(function () {
-        //alert("Hi");
-        for (var i = 0; i < 30; i++) {
-            if (i < 20) {
-                menu1ID = $('.employeeName').attr("id").charAt(1) + i;
-                $('#' + menu1ID + '.employeeName').css('position', 'absolute');
-
-                menu2ID = $('.managerName').attr("id").charAt(1) + i;
-                $('#' + menu2ID + '.managerName').css('position', 'absolute');
-
-            } else {
-                if (i < 30) {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'visible');
-                    $('#' + menu1ID + '.employeeName').css('position', 'relative');
-                    $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'visible');
-                    $('#' + menu2ID + '.managerName').css('position', 'relative');
-                    $('#' + menu2ID + '.managerName').css('margin-top', '.5px');
-                }
-                else {
-                    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
-                    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
-
-                    menu2ID = $('.managerName').attr("id").charAt(2) + i;
-                    $('#' + menu2ID + '.managerName').css('visibility', 'hidden');
-                }
-
-            }
-
-        }
-    });
-
 });
 
 $(document).mouseup(function () {
@@ -1144,6 +976,162 @@ $(document).mouseup(function () {
     }
 
 });
+
+
+
+
+
+
+
+
+
+
+    //for (var i = 11; i < 31; i++) {
+    //    menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //    $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+    //}
+    //$('#stratingPage').click(function () {
+    //    for (var i = 0; i < 30; i++) {
+    //        if (i < 10) {
+    //            menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+    //            $('#' + menu1ID + '.employeeName').css('position', 'relative');
+
+               
+
+    //        } else {
+    //            if (i < 20) {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+    //                $('#' + menu1ID + '.employeeName').css('position', 'relative');
+    //                $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+                   
+    //            }
+    //            else {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+                   
+    //            }
+
+    //        }
+
+    //    }
+    //});
+    //$('#firstPage').click(function () {
+    //    for (var i = 0; i < 30; i++) {
+    //        if (i < 10) {
+    //            menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+    //            $('#' + menu1ID + '.employeeName').css('position', 'relative');
+
+               
+
+    //        } else {
+    //            if (i < 20) {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+    //                $('#' + menu1ID + '.employeeName').css('position', 'relative');
+    //                $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+    //            }
+    //            else {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+                 
+    //            }
+
+    //        }
+
+    //    }
+    //});
+    //$('#secondPage').click(function () {
+    //    //alert("Hi");
+    //    for (var i = 0; i < 30; i++) {
+    //        if (i < 10) {
+    //            menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+    //            $('#' + menu1ID + '.employeeName').css('position', 'absolute');
+
+               
+    //        } else {
+    //            if (i < 20) {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'visible');
+    //                $('#' + menu1ID + '.employeeName').css('position', 'relative');
+    //                $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+                  
+    //            }
+    //            else {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+                
+    //            }
+
+    //        }
+
+    //    }
+    //});
+    //$('#thirdPage').click(function () {
+    //    //alert("Hi");
+    //    for (var i = 0; i < 30; i++) {
+    //        if (i < 20) {
+    //            menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+    //            $('#' + menu1ID + '.employeeName').css('position', 'absolute');
+
+              
+
+    //        } else {
+    //            if (i < 30) {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'visible');
+    //                $('#' + menu1ID + '.employeeName').css('position', 'relative');
+    //                $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+                  
+    //            }
+    //            else {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+             
+    //            }
+
+    //        }
+
+    //    }
+    //});
+    //$('#lastPage').click(function () {
+    //    //alert("Hi");
+    //    for (var i = 0; i < 30; i++) {
+    //        if (i < 20) {
+    //            menu1ID = $('.employeeName').attr("id").charAt(1) + i;
+    //            $('#' + menu1ID + '.employeeName').css('position', 'absolute');
+
+              
+    //        } else {
+    //            if (i < 30) {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'visible');
+    //                $('#' + menu1ID + '.employeeName').css('position', 'relative');
+    //                $('#' + menu1ID + '.employeeName').css('margin-top', '.5px');
+
+                   
+    //            }
+    //            else {
+    //                menu1ID = $('.employeeName').attr("id").charAt(2) + i;
+    //                $('#' + menu1ID + '.employeeName').css('visibility', 'hidden');
+
+                   
+    //            }
+
+    //        }
+
+    //    }
+    //});
+
+
 
 
 

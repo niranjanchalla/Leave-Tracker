@@ -1,12 +1,18 @@
 ﻿@model Vl.LeaveTracker.Models.LeaveTrackerDetails
 
-
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "LeaveTracker";
 }
 
+<h2>LeaveTracker</h2>
 
-
+<fieldset>
+    <legend>LeaveTrackerDetails</legend>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmpDetails[0].EmpId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
 
 <head>
     <title></title>
@@ -123,16 +129,13 @@
 
     <table>
         @for (int row = 0; row < 10; row++)
-        { 
+        {
             <tr>
-                 
                 @for (int column = 0; column < 31; column++)
                 {
-                   
                     
                     <td id="@row@column" class="cell popupCell" style="float:left; background-color:#ffc9e9;color:black;"></td>
                 }
-                
             </tr>
         }
     </table>
@@ -147,31 +150,3 @@
         }
     </div>
 </div>
-
-@*
-<div class="Pages" id="pageId">
-    <a href="#" id="stratingPage" class="startingPageClass"><<</a>  <a href="#" id="firstPage" class="badge firstPageClass">0</a>  <a href="#" class="badge secondPageClass" id="secondPage">1</a>   <a href="#" id="thirdPage" class="badge thirdPageClass">2</a>   <a href="#" id="lastPage" class="lastPageClass">>></a>
-</div>*@
-
-
-
-@*   @{
-            
-    var currentCellDate = new DateTime();
-    currentCellDate.AddDays(-15);
-    var empLeave = Model.LeaveDetails[1441].First(item => item.LeaveFrom <= currentCellDate && item.LeaveTo >= currentCellDate).LeaveTypeId;
-    
-    }*@
-
-
-
-@*@{
-    var leaveName = " ";
-
-    //var leaveDetails = Model.LeaveDetails.ToList().FirstOrDefault().Value;
-    //var leaveTypeId = leaveDetails[column].LeaveTypeId;
-    var leaveDetails = Model.LeaveDetails.ToList().FirstOrDefault().Value;
-    var leaveTypeId = leaveDetails[0].LeaveTypeId;
-    leaveName = Model.LeaveTypes[0].Ltype;
-    
-}*@

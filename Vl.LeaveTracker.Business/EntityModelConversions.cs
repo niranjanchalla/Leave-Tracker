@@ -42,7 +42,7 @@ namespace Vl.LeaveTracker.Business
 
         public static EmployeeDetails ConvertEmployeeDetails(this EmployeeT source)
         {
-            return source != null ? new EmployeeDetails
+            return source != null || source.ManagerId==null ? new EmployeeDetails
             {
                 EmpId = source.EmpId,
                 Empname = source.EmpName,

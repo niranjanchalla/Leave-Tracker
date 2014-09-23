@@ -25,14 +25,14 @@ namespace VL.LeaveTracker.Controllers
             //--------         to get leave details ----------------- //////
 
             MainB obj1 = new MainB();
-           var result = new Vl.LeaveTracker.Models.LeaveTrackerDetails();
+            var result = new Vl.LeaveTracker.Models.LeaveTrackerDetails();
 
-           DateTime currentdate = inputDate;
+            DateTime currentdate = new DateTime(2014, 09, 09);
             DateTime startdateToPass = obj1.GetStartDateForGivenCurrentDate(currentdate);
             DateTime endddateToPass = obj1.GetEndDateForGivenCurrentDate(currentdate);
 
             result = obj1.GetLeaveTrackerDetailsForGivenDateRange(startdateToPass, endddateToPass);
-           
+
             return View(result);
         }
 
@@ -50,6 +50,6 @@ namespace VL.LeaveTracker.Controllers
             return View();
         }
 
-        public DateTime inputDate { get; set; }
+       
     }
 }
