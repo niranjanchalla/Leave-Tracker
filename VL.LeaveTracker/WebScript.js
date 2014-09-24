@@ -51,9 +51,10 @@ function clickpopup(event) {
             $('#' + divID + '.popupCell').removeClass('valueSet');
         }
         else {
-            $AppendText = '<div style="font-weight: bold;border: 0px solid #000;font-size: 2.0em;text-align:center;">' + element + '</div>';
-            $('#' + divID + '.popupCell').html($AppendText);
+            $AppendText =  element ;
+            $('#' + divID + '.popupCell').text($AppendText);
             $('#' + divID + '.popupCell').css('background-color', '#' + color);
+            $('#' + divID + '.popupCell').css('font-size', '25px');
             $('#' + divID + '.popupCell').addClass('valueSet');
 
 
@@ -64,6 +65,70 @@ function clickpopup(event) {
     //var splits = x.split(',');
     //employeeRowNo = splits[0];
     //$('#totalLeaveCount ' + employeeRowNo).html(GetLeavesCountByEmployee(employeeRowNo));
+    return event.id;
+}
+
+
+function GetLeaveTextByTypeId(leaveTypeId) {
+    var cssName = "";
+
+    switch (leaveTypeId) {
+        case 1:
+            cssName = "V";
+            break;
+        case 2:
+            cssName = "S";
+            break;
+        case 3:
+            cssName = "P";
+            break;
+        case 4:
+            cssName = "M";
+            break;
+        case 5:
+            cssName = "C";
+            break;
+    }
+}
+function DisplayLeaves(elementid, LeaveName) {
+    //alert(selectedCellId);
+    var divID = elementid;
+    var element = LeaveName.charAt(0);
+    var color;
+    if (element == 'V') {
+        color = "313ae5";
+    } else {
+        if (element == 'S') {
+            color = "34a52b";
+        }
+        else {
+            if (element == 'P') {
+                color = "ff2187";
+            }
+            else {
+                if (element == 'M') {
+                    color = "f4f63d";
+                }
+                else {
+                    if (element == 'C') {
+                        color = "ff00dc";
+                    }
+
+
+                }
+            }
+        }
+    }
+    if (divID != "") {
+        
+            $AppendText = element;
+            $('#' + divID + '.popupCell').text($AppendText);
+            $('#' + divID + '.popupCell').css('background-color', '#' + color);
+            $('#' + divID + '.popupCell').css('font-size', '25px');
+            $('#' + divID + '.popupCell').addClass('leaveSet');
+
+    }
+
     return event.id;
 }
 
@@ -783,35 +848,36 @@ function setDateRange(SetDate) {
 
 
         //alert(date)
-
+        var incr = 0;
         for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
             n = weekday[date.getDay()];
             // result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
+            
             for (var j = 0; j < 1; j++) {
 
                 // alert(n);
                 if (n == "Sat" || n == "Sun") {
 
                     // alert(n)
-                    result = result + "<div id='cdate' class='date headerCellHoliday'>" + date.getDate() + "</div>";
+                    result = result + "<div id= '" + incr + "' class='headerCellHoliday date'>" + date.getDate() + "</div>";
                     //alert(result)
 
                 }
                 else {
 
-                    if (date == currdate) {
-                        //alert(date)
+                    //if (date == currdate) {
+                    //    //alert(date)
 
-                        result = result + "<div id='cdate' class='date headerCellToday'>" + date.getDate() + "</div>";
-                        //alert(result)
+                    //    result = result + "<table><tr id='" + incr + "' class='date headerCellToday'>" + date.getDate() + "</tr></table>";
+                    //    //alert(result)
 
-                    }
-                    else {
-                        result = result + "<div id='cdate' class='date headerCell'>" + date.getDate() + "</div>";
+                    //}
+                    //else {
+                    result = result + "<div id='" + incr + "' class='headerCell date'>" + date.getDate() + "</div>";
 
-                    }
+                    //}
                 }
-
+                incr++;
             }
         }
 
@@ -949,6 +1015,7 @@ $(document).ready(function () {
     if (getId == 15) {
         $('#' + getId + '.dailyLeaves').css('background-color', 'lightblue');
     }
+
 });
 
 $(document).mouseup(function () {

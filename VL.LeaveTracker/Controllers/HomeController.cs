@@ -27,7 +27,7 @@ namespace VL.LeaveTracker.Controllers
             MainB obj1 = new MainB();
             var result = new Vl.LeaveTracker.Models.LeaveTrackerDetails();
 
-            DateTime currentdate = new DateTime(2014, 09, 09);
+            DateTime currentdate = new DateTime(2014, 10,09);
             DateTime startdateToPass = obj1.GetStartDateForGivenCurrentDate(currentdate);
             DateTime endddateToPass = obj1.GetEndDateForGivenCurrentDate(currentdate);
 

@@ -12,6 +12,7 @@ namespace Vl.LeaveTracker.Models
        public IList<LeaveTypeDetails> LeaveTypes { get; set; }
        public List<EmployeeDetails> EmpDetails { get; set; }
        public List<ManagerDetails> MangDetails { get; set; }
+       public DateTime inputDate { get; set; }
     }
    
 }
