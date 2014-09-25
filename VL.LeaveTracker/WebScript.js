@@ -51,7 +51,7 @@ function clickpopup(event) {
             $('#' + divID + '.popupCell').removeClass('valueSet');
         }
         else {
-            $AppendText =  element ;
+            $AppendText = element;
             $('#' + divID + '.popupCell').text($AppendText);
             $('#' + divID + '.popupCell').css('background-color', '#' + color);
             $('#' + divID + '.popupCell').css('font-size', '25px');
@@ -65,6 +65,7 @@ function clickpopup(event) {
     //var splits = x.split(',');
     //employeeRowNo = splits[0];
     //$('#totalLeaveCount ' + employeeRowNo).html(GetLeavesCountByEmployee(employeeRowNo));
+
     return event.id;
 }
 

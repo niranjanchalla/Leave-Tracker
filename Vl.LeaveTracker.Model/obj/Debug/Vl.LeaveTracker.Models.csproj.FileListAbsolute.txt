@@ -17,4 +17,3 @@ C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\Leave
 C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\Vl.LeaveTracker.Model\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\Vl.LeaveTracker.Model\obj\Debug\Vl.LeaveTracker.Model.dll
 C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\Vl.LeaveTracker.Model\obj\Debug\Vl.LeaveTracker.Model.pdb
-C:\Users\nchalla\Documents\Visual Studio 2012\Projects\VL.LeaveTracker.Web\LeaveTracker\Vl.LeaveTracker.Model\obj\Debug\Vl.LeaveTracker.Models.csprojResolveAssemblyReference.cache

@@ -1,6 +1,5 @@
 ﻿@model Vl.LeaveTracker.Models.LeaveTrackerDetails
 
-
 @{
     ViewBag.Title = "Home Page";
 }
@@ -146,7 +145,7 @@
             </div>
             @for (int g = 0; g < 31; g++)
             {
-                <div id="@g" class="cell dailyLeaves" style="background-color:#f895cf;font-size:medium;color:black;">
+                <div id="@g"  class="cell dailyLeaves"  style="background-color:#f895cf;font-size:medium;color:black;">
                 </div>   
             }
         </div>
@@ -160,8 +159,10 @@
 
 
 @*<div class="Pages" id="pageId">
-    <a href="#" id="stratingPage" class="startingPageClass"><<</a>  <a href="#" id="firstPage" class="badge 
-firstPageClass">0</a>  <a href="#" class="badge secondPageClass" id="secondPage">1</a>   <a href="#" id="thirdPage" 
+    <a href="#" id="stratingPage" class="startingPageClass"><<</a>  <a href="#" id="firstPage" class="badge 
+
+firstPageClass">0</a>  <a href="#" class="badge secondPageClass" id="secondPage">1</a>   <a href="#" id="thirdPage" 
+
 class="badge thirdPageClass">2</a>   <a href="#" id="lastPage" class="lastPageClass">>></a>
 </div>*@
 
@@ -173,7 +174,7 @@ class="badge thirdPageClass">2</a>   <a href="#" id="lastPage" class="lastPageCl
 <script type="text/javascript">
 
 
-
+  
     //var currentCelDate = new DateTime();
     //currentCelDate.AddDays(-15);
     //for (int i = 1440; i > Model.LeaveDetails.Count; i++)
@@ -260,7 +261,7 @@ class="badge thirdPageClass">2</a>   <a href="#" id="lastPage" class="lastPageCl
         //DisplayLeaves(lid, "@leaveName");
         //alert($('.date').attr("id").charAt(0));
 
-
+       // alert($('.dailyLeaves').attr("title"));
 
     });
 
