@@ -1,7 +1,7 @@
 ﻿
-webshims.setOptions('waitReady', false);
-webshims.setOptions('forms-ext', { types: 'date' });
-webshims.polyfill('forms forms-ext');
+//webshims.setOptions('waitReady', false);
+//webshims.setOptions('forms-ext', { types: 'date' });
+//webshims.polyfill('forms forms-ext');
 var resultString;
 var selectedCellId;
 var $AppendText;
@@ -813,6 +813,7 @@ function setDateRange(SetDate) {
                 }
             }
         }
+
         return result;
     });
     $('#Dates').html(function () {
@@ -983,6 +984,7 @@ function getDateId() {
 
 $(document).ready(function () {
     setDateRange(new Date());
+    //$('#inputDate').val(new Date().toDateString());
     $('#inputDate').change(function () {
 
         if (inputDate.value == "") {
@@ -990,7 +992,7 @@ $(document).ready(function () {
         } else {
             setDateRange(inputDate.value)
         }
-       
+        $.post("/Home/Index", { date: $('#inputDate').val() });
     });
 
     resultString = "<div class='dropdown theme-dropdown clearfix'><ul id='LeaveMenu' class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'><li role='presentation' id ='1' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#' >Vacation Leave </a></li><li role='presentation' id = '2' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Sick Leave</a></li><li role='presentation' id = '3' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Personal Leave</a></li><li role='presentation' id = '4' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Marriage Leave</a></li><li role='presentation' id = '5' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Custom Leave</a></li><li role='presentation' id = '6' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Remove Selection</a></li></ul></div>";
