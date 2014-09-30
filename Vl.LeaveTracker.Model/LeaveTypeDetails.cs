@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vl.LeaveTracker.Models
 {
-  public  class LeaveTypeDetails
+    public class LeaveTypeDetails
     {
         public int Id { get; set; }
         public string Ltype { get; set; }

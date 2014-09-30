@@ -1,44 +1,23 @@
 ﻿@model Vl.LeaveTracker.Models.LeaveTrackerDetails
-
 @{
     ViewBag.Title = "Home Page";
-}
-
-@{var employeeName = " ";
-  var employeeID = 0;
-
+    var employeeName = " ";
+    var employeeID = 0;
 }
 <head>
     <title></title>
-    <!-- Bootstrap core CSS -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <script src="~/Scripts/jquery-2.1.1.js"></script>
-@*<script src="~/Scripts/jquery.popupover.js"></script>*@
-<script src="~/Scripts/jquery-2.1.1.min.js"></script>
-<script src="~/Scripts/jquery-ui-1.8.24.js"></script>
 <script src="~/Scripts/WebScript.js"></script>
 <script src="~/Scripts/jquery.ui.datepicker.js"></script>
-
 <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<link href="~/IndexStyle.css" rel="stylesheet" type="text/css" />
-@*<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
-<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
-   <link href="~/Content/themes/base/jquery.ui.datepicker.css" rel="stylesheet" />
-<link href="~/Content/themes/base/jquery.ui.theme.css" rel="stylesheet" />
-<link href="~/Content/themes/base/jquery.ui.core.css" rel="stylesheet" />
-<link href="~/Content/themes/base/minified/jquery.ui.core.min.css" rel="stylesheet" />
-<link href="~/Content/themes/base/minified/jquery.ui.theme.min.css" rel="stylesheet" />
-<link href="~/Content/themes/base/minified/jquery.ui.datepicker.min.css" rel="stylesheet" />*@
-
+<link href="~/Content/IndexStyle.css" rel="stylesheet" />
 <div style="text-align: center; width: 1330px;">
     Select Date: 
-    <input type="date" id="inputDate" style="" />
-    @*@Html.TextBoxFor(m => m.inputDate, new { @Value = @Model.inputDate.HasValue ? @Model.inputDate.Value.ToShortDateString() : DateTime.Now.ToShortDateString(), @style = "background-color: #F6FAEB", @autocomplete = "off", @class="datefield" })*@
+    <input type="date" id="inputDate" />
 </div>
-
 <div class="jumbotron" style="height: 480px; background-color: #d3dce0; width: 1330px; float: left; color: black;">
     <div id="months1" style="float: left; margin: .5px; background-color: #d3dce0; width: 1270px; color: black; height: 30px;">
         <div id="menu1" style="border-spacing: 2px; float: left; width: 100px; border: 0px;">
@@ -85,17 +64,17 @@
                 }
             }
         </div>
-        <div id="Days" style="border-spacing: 2px; margin-right: 10px; padding-top: 10px;">
+        <div id="Days" style="">
         </div>
     </div>
     <div id="dates1" style="float: left; margin: .5px; width: 1270px; color: black; border-top: 1px solid;">
         <div id="menu1" style="border-spacing: 2px; float: left; width: 200px;">
-            <div id="menu1.1" class="cellrow" style="text-align: center; width: 200px; padding-top: 5px; font-size: 11.4px; font-weight: bolder; background-color: #3499ee;">
+            <div id="menu1.1" class="" style="text-align: left; width: 200px; padding: 6px; font-size: 11.4px; font-weight: bold;">
                 Employee Name
             </div>
         </div>
         <div id="menu3" style="border-spacing: 2px;">
-            <div class="cellrow1" style="text-align: center; padding-top: 5px; font-size: 15px; font-weight: bold; background-color: #f895cf;">
+            <div class="cellrow1" style="text-align: left; border: none !important; padding-top: 5px; font-size: 11.4px; font-weight: bold;">
                 Total Leaves
             </div>
         </div>
@@ -106,14 +85,29 @@
         @for (int employeeNum = 0; employeeNum < 10; employeeNum++)
         {
             employeeName = employeeNum < Model.EmpDetails.Count ? Model.EmpDetails[employeeNum].Empname : string.Empty;
-            employeeID = employeeNum < Model.EmpDetails.Count ? Model.EmpDetails[employeeNum].EmpId : 0;
-            <div id="@employeeNum" class="employeeName cellrow" title="@employeeID" style="background-color: #fa978a;color:black;width:197px">@employeeName</div>
+            employeeID = employeeNum < Model.EmpDetails.Count ? Model.EmpDetails[employeeNum].EmpId : '0';
+            var mngrid = employeeNum < Model.EmpDetails.Count ? Model.EmpDetails[employeeNum].ManagerId : '0';
+            var managerName = "";
+            var managerid = 0;
+            foreach (var item in Model.MangDetails)
+            {
+                if (item.Id == mngrid)
+                {
+                    managerid = item.Id;
+                    managerName = item.Name;
+                }
+            }
+            <div id="@employeeNum" class="employeeName cellrow" title="@employeeID" style="padding:6px; background-color: #d3dce0;color:black;width:197px;font-size:small;text-align:left;">@employeeName
+                @if (String.IsNullOrEmpty(managerName))
+                { managerName = "Manager"; }
+                <span style="font-size: xx-small">[ @managerName ]</span>
+            </div>
         }
     </div>
     <div id="menu3" style="height: 300px; width: 107px; float: right;">
         @for (int f = 0; f < 10; f++)
         {                                       
-            <div id="@f" class="leavecount cellrow1" style="background-color: #fbfc9e;font-size:medium;color:black;">
+            <div id="@f" class="leavecount cellrow1"  style="background-color: #e1e6e5;font-size:medium;color:black;">
             </div>   
         }
     </div>
@@ -123,131 +117,191 @@
             <tr>
                 @for (int column = 0; column < 31; column++)
                 {
-                    <td id="@row@column" class="cell popupCell" style="float:left; background-color:#ffc9e9;color:black;"></td>
+                    <td id="@row@column" class="cell popupCell" style="float:left; background-color:#fff;color:black;"></td>
                 }
             </tr>
         }
     </table>
     <div id="menu4" style="height: 30px; width: 1300px; bottom: 0; right: 0; left: 0; position: relative; color: black;">
-        <div class="cellcol" style="font-size: 18px; font-weight: bold; background-color: #0ff;">
+        <div class="cellcol" style="font-size: 11.4px; border: none; padding: 6px; text-align: left; font-weight: bold;">
             Total
         </div>
         @for (int g = 0; g < 31; g++)
         {
-            <div id="@g"  class="cell dailyLeaves"  style="background-color:#f895cf;font-size:medium;color:black;">
+            <div id="@g"  class="cell dailyLeaves"  style="background-color:#e1e6e5;font-size:medium;color:black;padding:5px;">
             </div>   
         }
     </div>
 </div>
 
-
-@*<div class="Pages" id="pageId">
-    <a href="#" id="stratingPage" class="startingPageClass"><<</a>  <a href="#" id="firstPage" class="badge 
-
-firstPageClass">0</a>  <a href="#" class="badge secondPageClass" id="secondPage">1</a>   <a href="#" id="thirdPage" 
-
-class="badge thirdPageClass">2</a>   <a href="#" id="lastPage" class="lastPageClass">>></a>
-</div>*@
-
-
-<script type="text/javascript">
-    //var currentCelDate = new DateTime();
-    //currentCelDate.AddDays(-15);
-    //for (int i = 1440; i > Model.LeaveDetails.Count; i++)
-    //{
-    //    employeeId = Model.LeaveDetails[i].First(item => item.LeaveFrom <= currentCelDate && item.LeaveTo >=currentCelDate).EmpId;
-    //    var empLeave = Model.LeaveDetails[employeeId].First(item => item.LeaveFrom <= currentCelDate && item.LeaveTo >= currentCelDate).LeaveTypeId;
-    //}
-    //     var leaveDetailsCount = Model.LeaveDetails.ToList().FirstOrDefault().Value;
-    //    //var leaveTypeId = leaveDetails[column].LeaveTypeId;
-    //    //var leaveDetails = Model.LeaveDetails.ToList().FirstOrDefault().Value;
-    //    // var listempId = leaveDetailsCount.FirstOrDefault().EmpId;
-    //    //var orgempId = Model.EmpDetails.ToList().Distinct();
-    //     var increment = Model.LeaveDetails.Count;
-    //    foreach (var item in Model.LeaveDetails)
-    //    {   var leaveDetails = item.Value;
-    //        for (int i = 0; i < leaveDetails.Count; i++)
-    //        {
-
-    //            var leaveTypeId = leaveDetails[i].LeaveTypeId;
-    //            var leaveName = Model.LeaveTypes[leaveTypeId - 1].Ltype;
-
-    //            var LeaveFromDate = leaveDetails[i].LeaveFrom.Value.Day;
-    //            var LeaveEndDate = leaveDetails[i].LeaveTo.Value.Day;
-    //            var empName = Model.EmpDetails[i].Empname;
-    //            employeeId = Model.EmpDetails[i].EmpId;
-    //            increment++;
-    //var currentCellDate = new DateTime(2014, 10, 01);
-    //currentCellDate.AddDays(-15);
-    //var Leaves = row < Model.LeaveTypes.Count ? Model.LeaveTypes[row].Ltype : string.Empty; 
-
-
-    //        }
-    //    }
-
-
-
-    @{
-         var leaveFromDate=0;
-         var leaveToDate=0;
-         var leaveTypeId=0;
-         var leaveName="";
-         var leaveEmpId=0;
-         var employeName = "";
-         var leaveDetails = Model.LeaveDetails.ToList().FirstOrDefault().Value;
-         leaveFromDate = leaveDetails[0].LeaveFrom.Value.Day;
-
-         leaveToDate = leaveDetails[0].LeaveTo.Value.Day;
-         leaveTypeId = leaveDetails[0].LeaveTypeId;
-             leaveName = "";
-             leaveEmpId = leaveDetails[0].EmpId;
-             employeName = "";
-            //for (int i = 0; i < Model.LeaveDetails.ToList().Count - 1; i++)
-            //{
-
-            //    leaveFromDate = leaveDetails[i].LeaveFrom.Value.Day;
-            //    leaveToDate = leaveDetails[i].LeaveTo.Value.Day;
-            //    leaveTypeId = leaveDetails[i].LeaveTypeId;
-            //    leaveEmpId = leaveDetails[i].EmpId;
-            //}
-             leaveName = Model.LeaveTypes.First(item => item.Id == leaveTypeId).Ltype;
-             employeName = Model.EmpDetails.First(item => item.EmpId == leaveEmpId).Empname; 
-
-        
-     }
-    $(document).click(function () {
-        debugger;
-        var lid = "";
-        var fromDateId;
-        var endDateId;
-        for (var i = 0; i < 30; i++) {
-            if ($('#'+i+'.date').text() == '@leaveFromDate') {
-                 fromDateId = $('.date').attr("id").charAt(1)+i;
-            }
-            if ($('#'+i+'.date').text() == '@leaveToDate') {
-                endDateId = $('.date').attr("id").charAt(1) + i;
-            }
-    }
-        for (var i = fromDateId; i <= endDateId; i++) {
-            switch ('@employeName') {
-                case "Niranjan": lid = '0' + i;
-                    DisplayLeaves(lid, "@leaveName");
-                    break;
-                case "Swethna": lid = '1' + i;
-                    DisplayLeaves(lid, "@leaveName");
-                    break;
-                case "Mounica": lid = '2' + i;
-                    DisplayLeaves(lid, "@leaveName");
-                    break;
-                default: alert("Employee Not Found");
-                    break;
-
+@{
+    var leaveFromDate = 0;
+    var leaveToDate = 0;
+    var leaveTypeId = 0;
+    var leaveEmpId = 0;
+    var employeName = "";
+    var leaveFromDateMonth = 0;
+    var leaveTypeName = "";
+    var leaveid = 0;
+    var m = "";
+    var month = new string[13];
+    month[0] = "";
+    month[1] = "Jan";
+    month[2] = "Feb";
+    month[3] = "Mar";
+    month[4] = "Apr";
+    month[5] = "May";
+    month[6] = "Jun";
+    month[7] = "Jul";
+    month[8] = "Aug";
+    month[9] = "Sep";
+    month[10] = "Oct";
+    month[11] = "Nov";
+    month[12] = "Dec";
+    foreach (var item in Model.LeaveDetails)
+    {
+        var employeeLeaveDetails = item.Value;
+        foreach (var days in employeeLeaveDetails)
+        {
+            leaveFromDate = days.LeaveFrom.Value.Day;
+            leaveFromDateMonth = days.LeaveFrom.Value.Month;
+            m = month[leaveFromDateMonth].ToUpper();
+            leaveToDate = days.LeaveTo.Value.Day;
+            leaveTypeId = days.LeaveTypeId;
+            leaveEmpId = days.EmpId;
+            leaveid = days.LeaveId;
+            foreach (var leaveItem in Model.LeaveTypes)
+            {
+                if (leaveItem.Id == leaveTypeId)
+                {
+                    leaveTypeName = leaveItem.Ltype;
                 }
             }
-        //DisplayLeaves(lid, "@leaveName");
-        //alert($('.date').attr("id").charAt(0));
+            foreach (var empDetls in Model.EmpDetails)
+            {
+                if (empDetls.EmpId == leaveEmpId)
+                {
+                    employeName = empDetls.Empname;
+                }
+            }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var lid = "";
+            var fromDateId;
+            var endDateId;
+            for (var i = 0; i < 30; i++) {
+                if ($('#' + i + '.date').text() == '@leaveFromDate' && $('#' + i + '.months').text() == '@m') {
+                    fromDateId = $('.date').attr("id").charAt(1) + i;
+                }
+                if ($('#' + i + '.date').text() == '@leaveToDate' && $('#' + i + '.months').text() == '@m') {
+                    endDateId = $('.date').attr("id").charAt(1) + i;
+                }
+            }
+            for (var i = fromDateId; i <= endDateId; i++) {
+                switch ('@employeName') {
+                    case "Niranjan": lid = '0' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Swethna": lid = '1' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Siddharth": lid = '2' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Mounica": lid = '3' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Durgesh": lid = '4' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Srinivas": lid = '5' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Himanshu": lid = '6' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Venkatadri": lid = '7' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Nagendra": lid = '8' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Sharath": lid = '8' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                            break;
+                    default: alert("Employee Not Found");
+                        break;
+                    }
+                }
+            for (var l = 15; l < 915; l = l + 100) {
+                if (l == 15) {
+                    var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
+                } else {
+                    var id = $('.popupCell').attr("id").charAt(2) + l;
+                }
+                $('#' + id + '.popupCell').css('background-color', '#69bff9');
+            }
+        });
+        $(document).change(function () {
+            var lid = "";
+            var fromDateId;
+            var endDateId;
+            for (var i = 0; i < 30; i++) {
+                if ($('#' + i + '.date').text() == '@leaveFromDate' && $('#' + i + '.months').text() == '@m') {
+                    fromDateId = $('.date').attr("id").charAt(1) + i;
+                }
+                if ($('#' + i + '.date').text() == '@leaveToDate' && $('#' + i + '.months').text() == '@m') {
+                    endDateId = $('.date').attr("id").charAt(1) + i;
+                }
+            }
+            for (var i = fromDateId; i <= endDateId; i++) {
+                switch ('@employeName') {
+                    case "Niranjan": lid = '0' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Swethna": lid = '1' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Siddharth": lid = '2' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Mounica": lid = '3' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Durgesh": lid = '4' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Srinivas": lid = '5' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Himanshu": lid = '6' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Venkatadri": lid = '7' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Nagendra": lid = '8' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    case "Sharath": lid = '8' + i;
+                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    default: alert("Employee Not Found");
+                        break;
+                    }
+                }
+            for (var l = 15; l < 915; l = l + 100) {
+                if (l == 15) {
+                    var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
+                } else {
+                    var id = $('.popupCell').attr("id").charAt(2) + l;
+                }
+                $('#' + id + '.popupCell').css('background-color', '#69bff9');
+            }
+        });
+           
+    </script>
+        }
+    }
+}
 
-       // alert($('.dailyLeaves').attr("title"));
-
-    });
-</script>

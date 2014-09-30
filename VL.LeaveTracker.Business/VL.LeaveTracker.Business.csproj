@@ -47,20 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBusiness.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="EmployeedetailsB.cs" />
+    <Compile Include="EmployeedetailsBusiness.cs" />
     <Compile Include="EntityModelConversions.cs" />
     <Compile Include="IBaseBusiness.cs" />
-    <Compile Include="IEmployeeDetailsB.cs" />
-    <Compile Include="ILeaveTypeB.cs" />
-    <Compile Include="IMainB.cs" />
-    <Compile Include="IManagerB.cs" />
-    <Compile Include="IStatusB.cs" />
-    <Compile Include="LeaveTypeB.cs" />
-    <Compile Include="MainB.cs" />
-    <Compile Include="ManagerB.cs" />
+    <Compile Include="IEmployeeDetailsBusiness.cs" />
+    <Compile Include="ILeaveTypeBusiness.cs" />
+    <Compile Include="IMainBusiness.cs" />
+    <Compile Include="IManagerBusiness.cs" />
+    <Compile Include="IStatusBusiness.cs" />
+    <Compile Include="LeaveTypeBusiness.cs" />
+    <Compile Include="MainBusiness.cs" />
+    <Compile Include="ManagerBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatusB.cs" />
+    <Compile Include="StatusBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

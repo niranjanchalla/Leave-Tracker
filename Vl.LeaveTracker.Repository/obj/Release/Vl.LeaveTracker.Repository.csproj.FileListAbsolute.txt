@@ -1,0 +1,14 @@
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\Vl.LeaveTracker.Repository.dll.config
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\Vl.LeaveTracker.Repository.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\Vl.LeaveTracker.Repository.pdb
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\EntityFramework.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\Vl.LeaveTracker.DataAccess.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\Vl.LeaveTracker.Model.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\Vl.LeaveTracker.DataAccess.pdb
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\Vl.LeaveTracker.Model.pdb
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\EntityFramework.xml
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\obj\Release\Vl.LeaveTracker.Repository.csprojResolveAssemblyReference.cache
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\obj\Release\Vl.LeaveTracker.Repository.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.Repository\obj\Release\Vl.LeaveTracker.Repository.pdb

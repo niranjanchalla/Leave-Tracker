@@ -13,8 +13,5 @@ namespace Vl.LeaveTracker.Models
         public int ManagerId { get; set; }
         public string CreatedDate { get; set; }
         public string UpdatedDate { get; set; }
-
-
-
     }
 }

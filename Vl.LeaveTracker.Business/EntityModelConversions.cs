@@ -64,5 +64,56 @@ namespace Vl.LeaveTracker.Business
             : new ManagerDetails();
         }
 
+        public static MainT RConvertMainDetails(this MainDetails source)
+        {
+            return source != null ? new MainT
+            {
+                AppliedDate = source.AppliedDate,
+                EmpId = source.EmpId,
+                LeaveFrom = source.LeaveFrom,
+                LeaveId = source.LeaveId,
+                LeaveTo = source.LeaveTo,
+                LeaveTypeId = source.LeaveTypeId,
+                ManagerId = source.ManagerId,
+                Reason = source.Reason,
+                status = source.status,
+                UpdatedDate = source.UpdatedDate
+
+            }
+            : new MainT();
+        }
+        public static LeaveT RConvertLeaveTypeDetails(this LeaveTypeDetails source)
+        {
+            return source != null ? new LeaveT
+            {
+                Id = source.Id,
+                Ltype = source.Ltype
+
+            }
+            : new LeaveT();
+        }
+        public static EmployeeT RConvertEmployeeDetails(this EmployeeDetails source)
+        {
+            return source != null ? new EmployeeT
+            {
+                EmpId = source.EmpId,
+                EmpName = source.Empname,
+                ManagerId = (int)source.ManagerId
+
+            }
+            : new EmployeeT();
+        }
+        public static ManagerT RConvertManagerDetails(this ManagerDetails source)
+        {
+            return source != null ? new ManagerT
+            {
+                Id = source.Id,
+                Name = source.Name,
+
+
+            }
+            : new ManagerT();
+        }
+
     }
 }

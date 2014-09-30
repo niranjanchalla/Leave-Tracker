@@ -1,0 +1,10 @@
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\bin\Release\Vl.LeaveTracker.DataAccess.dll.config
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\bin\Release\Vl.LeaveTracker.DataAccess.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\bin\Release\Vl.LeaveTracker.DataAccess.pdb
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\bin\Release\EntityFramework.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\bin\Release\EntityFramework.xml
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\obj\Release\Vl.LeaveTracker.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\obj\Release\Vl.LeaveTracker.DataAccess.dll
+C:\Users\nchalla\Desktop\LeaveTracker\Vl.LeaveTracker.DataAccess\obj\Release\Vl.LeaveTracker.DataAccess.pdb

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace Vl.LeaveTracker.Models
 {
     public class LeaveTrackerDetails
-    {       
-       public IDictionary<int,List<MainDetails>> LeaveDetails { get; set; }
-       public IList<LeaveTypeDetails> LeaveTypes { get; set; }
-       public List<EmployeeDetails> EmpDetails { get; set; }
-       public List<ManagerDetails> MangDetails { get; set; }
-       public DateTime inputDate { get; set; }
+    {
+        public IDictionary<int, List<MainDetails>> LeaveDetails { get; set; }
+        public IList<LeaveTypeDetails> LeaveTypes { get; set; }
+        public List<EmployeeDetails> EmpDetails { get; set; }
+        public List<ManagerDetails> MangDetails { get; set; }
+        public DateTime? inputDate { get; set; }
     }
-   
+
 }

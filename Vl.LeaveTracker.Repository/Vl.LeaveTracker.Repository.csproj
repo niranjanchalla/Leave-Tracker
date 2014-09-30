@@ -47,20 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeDetails.cs" />
+    <Compile Include="EmployeeRepository.cs" />
+    <Compile Include="EmployeeDetailsRepository.cs" />
     <Compile Include="IBaseRepository.cs" />
-    <Compile Include="IEmployeeDetails.cs" />
-    <Compile Include="ILeaveType.cs" />
-    <Compile Include="IMain.cs" />
-    <Compile Include="IManager.cs" />
-    <Compile Include="IStatus.cs" />
-    <Compile Include="LeaveType.cs" />
-    <Compile Include="Main.cs" />
-    <Compile Include="Manager.cs" />
+    <Compile Include="IEmployeeDetailsRepository.cs" />
+    <Compile Include="ILeaveTypeRepository.cs" />
+    <Compile Include="IMainRepository.cs" />
+    <Compile Include="IManagerRepository.cs" />
+    <Compile Include="IStatusRepository.cs" />
+    <Compile Include="LeaveTypeRepository.cs" />
+    <Compile Include="MainRepository.cs" />
+    <Compile Include="ManagerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Status.cs" />
+    <Compile Include="StatusRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

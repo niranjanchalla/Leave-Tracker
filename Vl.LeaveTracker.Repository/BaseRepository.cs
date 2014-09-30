@@ -6,8 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Vl.LeaveTracker.DataAccess;
 
-
-
 namespace Vl.LeaveTracker.Repository
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
