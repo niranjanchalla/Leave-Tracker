@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{30D4BE27-8894-4666-BD11-73547D68001C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{81F7C73C-4522-4048-A5B3-19A8EDE152FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{16E828AE-DC57-4C7F-A54F-0BAC2170A6A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{649ACF7E-86E5-4311-B505-C10306B1A0CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveTracker.Business", "Vl.LeaveTracker.Business\LeaveTracker.Business.csproj", "{A9F6AF5B-7A1E-4117-B473-0B3FF884D808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveTracker", "VL.LeaveTracker\LeaveTracker.csproj", "{B80B6591-645A-4CEF-8219-C156C7A5CC2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveTracker.DataAccess", "Vl.LeaveTracker.DataAccess\LeaveTracker.DataAccess.csproj", "{6A07F45C-100C-42BE-BCE4-23700467E285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveTracker.Repository", "Vl.LeaveTracker.Repository\LeaveTracker.Repository.csproj", "{9430E975-4C42-40BB-9F5B-A364307D4C10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveTracker.Models", "Vl.LeaveTracker.Model\LeaveTracker.Models.csproj", "{CF081A54-99CB-4A7E-8E1A-BBC771D617AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9F6AF5B-7A1E-4117-B473-0B3FF884D808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9F6AF5B-7A1E-4117-B473-0B3FF884D808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9F6AF5B-7A1E-4117-B473-0B3FF884D808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9F6AF5B-7A1E-4117-B473-0B3FF884D808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B80B6591-645A-4CEF-8219-C156C7A5CC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80B6591-645A-4CEF-8219-C156C7A5CC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80B6591-645A-4CEF-8219-C156C7A5CC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80B6591-645A-4CEF-8219-C156C7A5CC2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A07F45C-100C-42BE-BCE4-23700467E285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A07F45C-100C-42BE-BCE4-23700467E285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A07F45C-100C-42BE-BCE4-23700467E285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A07F45C-100C-42BE-BCE4-23700467E285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9430E975-4C42-40BB-9F5B-A364307D4C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9430E975-4C42-40BB-9F5B-A364307D4C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9430E975-4C42-40BB-9F5B-A364307D4C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9430E975-4C42-40BB-9F5B-A364307D4C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF081A54-99CB-4A7E-8E1A-BBC771D617AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF081A54-99CB-4A7E-8E1A-BBC771D617AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF081A54-99CB-4A7E-8E1A-BBC771D617AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF081A54-99CB-4A7E-8E1A-BBC771D617AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B80B6591-645A-4CEF-8219-C156C7A5CC2A} = {30D4BE27-8894-4666-BD11-73547D68001C}
+		{A9F6AF5B-7A1E-4117-B473-0B3FF884D808} = {81F7C73C-4522-4048-A5B3-19A8EDE152FE}
+		{6A07F45C-100C-42BE-BCE4-23700467E285} = {16E828AE-DC57-4C7F-A54F-0BAC2170A6A5}
+		{9430E975-4C42-40BB-9F5B-A364307D4C10} = {16E828AE-DC57-4C7F-A54F-0BAC2170A6A5}
+		{CF081A54-99CB-4A7E-8E1A-BBC771D617AD} = {649ACF7E-86E5-4311-B505-C10306B1A0CD}
+	EndGlobalSection
+EndGlobal

@@ -53,7 +53,9 @@ function clickpopup(event) {
             leaveFromMonth = $('#' + dateDetails + '.months').text();
             leaveFromYear = $('#' + dateDetails + '.date').attr("title");
             employeeID = $('#' + empID + '.employeeName').attr("title");
-            $.post("/Home/Index", { leaveTypeID: leaveTypeID, leaveFromDate: leaveFromDate, leaveFromMonth: leaveFromMonth, leaveFromYear: leaveFromYear, employeeID: employeeID });
+            _employeeID = employeeID.substring(0, 4);
+            _managerID = employeeID.substring(5, 9);
+            $.post("/Home/Index", { leaveTypeID: leaveTypeID, leaveFromDate: leaveFromDate, leaveFromMonth: leaveFromMonth, leaveFromYear: leaveFromYear, _employeeID: _employeeID, _managerID: _managerID });
         }
     }
     return leaveTypeID, leaveFromDate, leaveFromMonth, leaveFromYear, employeeID;
@@ -85,7 +87,7 @@ function DisplayLeaves(elementid, LeaveName, leaveid) {
         $('#' + divID + '.popupCell').css('background-color', '#' + color);
         $('#' + divID + '.popupCell').css('font-size', '25px');
         $('#' + divID + '.popupCell').addClass('valueSet');
-        document.getElementById(divID).title = leaveid;
+        $('#' + divID + '.popupCell').attr("title", "" + leaveid + "");
     }
 
     return true;
@@ -528,21 +530,17 @@ function setDateRange(SetDate) {
         weekday[5] = "Fri";
         weekday[6] = "Sat";
         var n = weekday[date.getDay()];
-
+        var incr = 0;
         for (date = startingDate; date <= endingDate; date.setDate(date.getDate() + 1)) {
             n = weekday[date.getDay()];
             for (var j = 0; j < 1; j++) {
                 if (n == "Sat" || n == "Sun") {
-                    result = result + "<div class='headerCellHoliday'>" + n.toUpperCase() + "</div>";
+                    result = result + "<div id= '" + incr + "' class='headerCellHoliday'>" + n.toUpperCase() + "</div>";
                 }
                 else {
-                    if (date == currdate) {
-                        result = result + "<div class='headerCellToday'>" + n.toUpperCase() + "</div>";
-                    }
-                    else {
-                        result = result + "<div class='headerCell'>" + n.toUpperCase() + "</div>";
-                    }
+                    result = result + "<div id= '" + incr + "' class='headerCell'>" + n.toUpperCase() + "</div>";
                 }
+                incr++;
             }
         }
         return result;
@@ -683,7 +681,7 @@ $(document).mouseup(function () {
         }
         $('#' + id + '.popupCell').css('background-color', '#69bff9');
     }
-    
+
 });
 
 $(document).mousemove(function () {

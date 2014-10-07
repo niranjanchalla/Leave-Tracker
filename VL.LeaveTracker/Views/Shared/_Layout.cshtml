@@ -19,18 +19,12 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" style="float: left;">
                     </button>
-                    <div class="navbar-brand" style="text-align: left; font-size: 25px;">Leave Tracker</div>
+                    <div class="navbar-brand" style="float: left; font-size: 25px;">Leave Tracker</div>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav" style="float: right; height: 80px;">
-                        <p>
-                            <li style="color: #b6ff00; padding-left: 10px;">Hello,<b>@User.Identity.Name !</b></li>
-                        </p>
-                        <p>
+                            <li style="color: #b6ff00;">Hello,@User.Identity.Name!</li><br />
                             <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
-                        </p>
-
-
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -49,7 +43,7 @@
                 @*<img src="~/Images/ValueLabs_Logo.gif" align="center" height="35" width="80" />*@
 
                 <p>
-                    &copy; @DateTime.Now.Year - Company Name@*Value Labs*@
+                    &copy;&trademark; @DateTime.Now.Year - Company Name@*Value Labs*@
                 </p>
 
             </div>

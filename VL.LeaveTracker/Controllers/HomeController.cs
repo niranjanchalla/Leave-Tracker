@@ -16,25 +16,26 @@ namespace VL.LeaveTracker.Controllers
             string leaveFromDate,
             string leaveFromMonth,
             string leaveFromYear,
-            string employeeID,
-            string leaveID)
+            string _employeeID,
+            string leaveID,
+            string _managerID)
         {
 
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             LeaveTrackerDetails result = getLeaveDetails(date);
 
-            if (leaveID != null && employeeID == null && leaveTypeID == null)
+            if (leaveID != null && _employeeID == null && leaveTypeID == null)
             {
                 DeleteLeave(leaveID);
                 return View(result);
             }
-            if (leaveTypeID == null || leaveFromDate == null || leaveFromMonth == null || leaveFromYear == null || employeeID == null && leaveID == null)
+            if (leaveTypeID == null || leaveFromDate == null || leaveFromMonth == null || leaveFromYear == null || _employeeID == null || _managerID == null && leaveID == null)
             {
                 return View(result);
             }
 
-            int leaveid = InsertLeaves(leaveTypeID, leaveFromDate, leaveFromMonth, leaveFromYear, employeeID);
+            int leaveid = InsertLeaves(leaveTypeID, leaveFromDate, leaveFromMonth, leaveFromYear, _employeeID, _managerID);
             return View(leaveid);
 
         }
@@ -53,22 +54,21 @@ namespace VL.LeaveTracker.Controllers
             return View();
         }
 
-        private int InsertLeaves(string leaveTypeID, string leaveFromDate, string leaveFromMonth, string leaveFromYear, string employeeID)
+        private int InsertLeaves(string leaveTypeID, string leaveFromDate, string leaveFromMonth, string leaveFromYear, string _employeeID, string _managerID)
         {
             MainBusiness mainBusinessObject = new MainBusiness();
             int leaveTid = Convert.ToInt32(leaveTypeID);
             int leaveFdate = Convert.ToInt32(leaveFromDate);
             string leaveFmonth = Convert.ToString(leaveFromMonth);
             int leaveFyear = Convert.ToInt32(leaveFromYear);
-            int empid = Convert.ToInt32(employeeID);
-            //, int leaveTypeID,string leaveFromDate, string leaveFromMonth, int leaveFromYear, int employeeID
+            int empid = Convert.ToInt32(_employeeID);
             int month = Convert.ToDateTime(leaveFdate + leaveFmonth + leaveFyear).Month;
             var user = new MainDetails();
             user.AppliedDate = DateTime.Now;
             user.EmpId = empid;
             user.LeaveFrom = new DateTime(leaveFyear, month, leaveFdate);
             user.LeaveTo = new DateTime(leaveFyear, month, leaveFdate);
-            user.ManagerId = 1386;
+            user.ManagerId = Convert.ToInt32(_managerID);
             user.LeaveTypeId = leaveTid;
             user.Reason = "Default";
             user.status = "pending";

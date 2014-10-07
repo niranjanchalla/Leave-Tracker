@@ -31,7 +31,7 @@ namespace Vl.LeaveTracker.Business
         private Dictionary<int, List<Models.MainDetails>> GetLeaveDetailsForGivenDateRange(DateTime startDate, DateTime endDate)
         {
             var leaveDetails = new Dictionary<int, List<Models.MainDetails>>();
-            var mainTList = _mainRep.SelectAll().Where(item => item.LeaveTo >= startDate && item.LeaveFrom <= endDate);
+            var mainTList = _mainRep.SelectAll().Where(item => item.LeaveFrom >= startDate || item.LeaveTo < endDate);
             var mainDetails = new List<MainDetails>();
             foreach (var mainT in mainTList)
                 mainDetails.Add(mainT.ConvertMainDetails());

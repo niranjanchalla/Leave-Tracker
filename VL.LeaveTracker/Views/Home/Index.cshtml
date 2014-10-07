@@ -8,80 +8,80 @@
     <title></title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/IndexStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/WebScript.js"></script>
+    <script src="~/Scripts/jquery.ui.datepicker.js"></script>
 </head>
-<script src="~/Scripts/jquery-2.1.1.js"></script>
-<script src="~/Scripts/WebScript.js"></script>
-<script src="~/Scripts/jquery.ui.datepicker.js"></script>
-<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<link href="~/Content/IndexStyle.css" rel="stylesheet" />
 <div style="text-align: center; width: 1330px;">
     Select Date: 
     <input type="date" id="inputDate" />
 </div>
-<div class="jumbotron" style="height: 480px; background-color: #d3dce0; width: 1330px; float: left; color: black;">
-    <div id="months1" style="float: left; margin: .5px; background-color: #d3dce0; width: 1270px; color: black; height: 30px;">
-        <div id="menu1" style="border-spacing: 2px; float: left; width: 100px; border: 0px;">
+<div class="jumbotron" style="height: 480px; background-color: #d3dce0; width: 1330px; margin: 0px auto; color: black;">
+    <div id="months1">
+        <div id="monthsmenu1">
             @for (int a = 0; a < 1; a++)
             {
                 for (int b = 0; b < 1; b++)
                 {                                           
-                <div id="monthsMenu1" class="cellrow" style="border: 0px;">
+                <div id="alignment" class="cellrow">
                 </div> 
                 }
             }
         </div>
-        <div id="menu2" style="border-spacing: 2px; float: left; width: 100px;">
+        <div id="monthsmenu2">
             @for (int a = 0; a < 1; a++)
             {
                 for (int b = 0; b < 1; b++)
                 {                                           
-                <div id="monthsMenu2" class="cellrow" style="border: 0px;">
+                <div id="alignment" class="cellrow">
                 </div> 
                 }
             }
         </div>
-        <div id="Months" style="border-spacing: 2px; margin-right: 10px; padding-top: 10px;">
+        <div id="Months">
         </div>
     </div>
-    <div id="days1" style="float: left; margin: .5px; background-color: #d3dce0; width: 1270px; color: black;">
-        <div id="menu1" style="border-spacing: 2px; float: left; width: 100px;">
+    <div id="days1">
+        <div id="daysmenu1">
             @for (int a = 0; a < 1; a++)
             {
                 for (int b = 0; b < 1; b++)
                 {                                           
-                <div id="daysMenu1" class="cellrow" style="border: 0px;">
+                <div id="daysMenu1" class="cellrow">
                 </div> 
                 }
             }
         </div>
-        <div id="menu2" style="border-spacing: 2px; float: left; width: 100px;">
+        <div id="daysmenu2">
             @for (int a = 0; a < 1; a++)
             {
                 for (int b = 0; b < 1; b++)
                 {                                           
-                <div id="daysMenu2" class="cellrow" style="border: 0px;">
+                <div id="daysMenu2" class="cellrow">
                 </div> 
                 }
             }
         </div>
-        <div id="Days" style="">
+        <div id="Days">
         </div>
     </div>
-    <div id="dates1" style="float: left; margin: .5px; width: 1270px; color: black; border-top: 1px solid;">
-        <div id="menu1" style="border-spacing: 2px; float: left; width: 200px;">
-            <div id="menu1.1" class="" style="text-align: left; width: 200px; padding: 6px; font-size: 11.4px; font-weight: bold;">
+    <div id="dates1">
+        <div id="datesmenu1">
+            <div id="menu1_1">
                 Employee Name
             </div>
         </div>
-        <div id="menu3" style="border-spacing: 2px;">
-            <div class="cellrow1" style="text-align: left; border: none !important; padding-top: 5px; font-size: 11.4px; font-weight: bold;">
+        <div id="datesmenu3">
+            <div class="cellrow1" style="padding-top: 0px;">
                 Total Leaves
             </div>
         </div>
-        <div class="DatesDiv" id="Dates" style="border-spacing: 2px; padding-top: 7.5px;">
+        <div class="DatesDiv" id="Dates">
         </div>
     </div>
-    <div id="menu1" style="height: 300px; width: 200px; float: left;">
+    <div id="menu1">
         @for (int employeeNum = 0; employeeNum < 10; employeeNum++)
         {
             employeeName = employeeNum < Model.EmpDetails.Count ? Model.EmpDetails[employeeNum].Empname : string.Empty;
@@ -97,18 +97,17 @@
                     managerName = item.Name;
                 }
             }
-            <div id="@employeeNum" class="employeeName cellrow" title="@employeeID" style="padding:6px; background-color: #d3dce0;color:black;width:197px;font-size:small;text-align:left;">@employeeName
+            <div id="@employeeNum" class="employeeName cellrow" title="@employeeID @managerid">@employeeName
                 @if (String.IsNullOrEmpty(managerName))
                 { managerName = "Manager"; }
                 <span style="font-size: xx-small">[ @managerName ]</span>
             </div>
         }
     </div>
-    <div id="menu3" style="height: 300px; width: 107px; float: right;">
+    <div id="menu3">
         @for (int f = 0; f < 10; f++)
         {                                       
-            <div id="@f" class="leavecount cellrow1"  style="background-color: #e1e6e5;font-size:medium;color:black;">
-            </div>   
+            <div id="@f" class="leavecount cellrow1"></div>   
         }
     </div>
     <table>
@@ -117,23 +116,21 @@
             <tr>
                 @for (int column = 0; column < 31; column++)
                 {
-                    <td id="@row@column" class="cell popupCell" style="float:left; background-color:#fff;color:black;"></td>
+                    <td id="@row@column" class="cell popupCell"></td>
                 }
             </tr>
         }
     </table>
-    <div id="menu4" style="height: 30px; width: 1300px; bottom: 0; right: 0; left: 0; position: relative; color: black;">
-        <div class="cellcol" style="font-size: 11.4px; border: none; padding: 6px; text-align: left; font-weight: bold;">
-            Total
-        </div>
+    <div id="menu4">
+        <div class="cellcol">Total</div>
+
         @for (int g = 0; g < 31; g++)
         {
-            <div id="@g"  class="cell dailyLeaves"  style="background-color:#e1e6e5;font-size:medium;color:black;padding:5px;">
-            </div>   
+            <div id="@g"  class="cell dailyLeaves"></div>
+               
         }
     </div>
 </div>
-
 @{
     var leaveFromDate = 0;
     var leaveToDate = 0;
@@ -189,6 +186,7 @@
             var lid = "";
             var fromDateId;
             var endDateId;
+
             for (var i = 0; i < 30; i++) {
                 if ($('#' + i + '.date').text() == '@leaveFromDate' && $('#' + i + '.months').text() == '@m') {
                     fromDateId = $('.date').attr("id").charAt(1) + i;
@@ -226,41 +224,41 @@
                     case "Nagendra": lid = '8' + i;
                         DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
                         break;
-                    case "Sharath": lid = '8' + i;
+                    case "Sharath": lid = '9' + i;
                         DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        break;
+                    default: alert("Employee Not Found");
+                        break;
+                    }
+                }
+            for (var l = 15; l < 915; l = l + 100) {
+                if (l == 15) {
+                    var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
+                } else {
+                    var id = $('.popupCell').attr("id").charAt(2) + l;
+                }
+                $('#' + id + '.popupCell').css('background-color', '#69bff9');
+            }
+        });
+            $(document).change(function () {
+                var lid = "";
+                var fromDateId;
+                var endDateId;
+                for (var i = 0; i < 30; i++) {
+                    if ($('#' + i + '.date').text() == '@leaveFromDate' && $('#' + i + '.months').text() == '@m') {
+                        fromDateId = $('.date').attr("id").charAt(1) + i;
+                    }
+                    if ($('#' + i + '.date').text() == '@leaveToDate' && $('#' + i + '.months').text() == '@m') {
+                        endDateId = $('.date').attr("id").charAt(1) + i;
+                    }
+                }
+                for (var i = fromDateId; i <= endDateId; i++) {
+                    switch ('@employeName') {
+                        case "Niranjan": lid = '0' + i;
+                            DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
                             break;
-                    default: alert("Employee Not Found");
-                        break;
-                    }
-                }
-            for (var l = 15; l < 915; l = l + 100) {
-                if (l == 15) {
-                    var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
-                } else {
-                    var id = $('.popupCell').attr("id").charAt(2) + l;
-                }
-                $('#' + id + '.popupCell').css('background-color', '#69bff9');
-            }
-        });
-        $(document).change(function () {
-            var lid = "";
-            var fromDateId;
-            var endDateId;
-            for (var i = 0; i < 30; i++) {
-                if ($('#' + i + '.date').text() == '@leaveFromDate' && $('#' + i + '.months').text() == '@m') {
-                    fromDateId = $('.date').attr("id").charAt(1) + i;
-                }
-                if ($('#' + i + '.date').text() == '@leaveToDate' && $('#' + i + '.months').text() == '@m') {
-                    endDateId = $('.date').attr("id").charAt(1) + i;
-                }
-            }
-            for (var i = fromDateId; i <= endDateId; i++) {
-                switch ('@employeName') {
-                    case "Niranjan": lid = '0' + i;
-                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
-                        break;
-                    case "Swethna": lid = '1' + i;
-                        DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
+                        case "Swethna": lid = '1' + i;
+                            DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
                         break;
                     case "Siddharth": lid = '2' + i;
                         DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
@@ -283,23 +281,23 @@
                     case "Nagendra": lid = '8' + i;
                         DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
                         break;
-                    case "Sharath": lid = '8' + i;
+                    case "Sharath": lid = '9' + i;
                         DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
                         break;
                     default: alert("Employee Not Found");
                         break;
                     }
                 }
-            for (var l = 15; l < 915; l = l + 100) {
-                if (l == 15) {
-                    var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
-                } else {
-                    var id = $('.popupCell').attr("id").charAt(2) + l;
+                for (var l = 15; l < 915; l = l + 100) {
+                    if (l == 15) {
+                        var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
+                    } else {
+                        var id = $('.popupCell').attr("id").charAt(2) + l;
+                    }
+                    $('#' + id + '.popupCell').css('background-color', '#69bff9');
                 }
-                $('#' + id + '.popupCell').css('background-color', '#69bff9');
-            }
-        });
-           
+            });
+
     </script>
         }
     }
