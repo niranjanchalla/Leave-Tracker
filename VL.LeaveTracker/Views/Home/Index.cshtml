@@ -11,9 +11,9 @@
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/IndexStyle.css" rel="stylesheet" />
 </head>
-    <script src="~/Scripts/jquery-2.1.1.js"></script>
-    <script src="~/Scripts/WebScript.js"></script>
-    <script src="~/Scripts/jquery.ui.datepicker.js"></script>
+<script src="~/Scripts/jquery-2.1.1.js"></script>
+<script src="~/Scripts/WebScript.js"></script>
+<script src="~/Scripts/jquery.ui.datepicker.js"></script>
 <div style="text-align: center; width: 1330px;">
     Select Date: 
     <input type="date" id="inputDate" />
@@ -97,7 +97,7 @@
                     managerName = item.Name;
                 }
             }
-            <div id="@employeeNum" class="employeeName cellrow" title="@employeeID @managerid">@employeeName
+            <div id="@employeeNum" class="employeeName cellrow" title="EmployeeID @employeeID ManagerId @managerid">@employeeName
                 @if (String.IsNullOrEmpty(managerName))
                 { managerName = "Manager"; }
                 <span style="font-size: xx-small">[ @managerName ]</span>
@@ -203,23 +203,16 @@
                         break;
                     default: alert("Employee Not Found");
                         break;
-                    }
                 }
-            for (var l = 15; l < 915; l = l + 100) {
-                if (l == 15) {
-                    var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
-                } else {
-                    var id = $('.popupCell').attr("id").charAt(2) + l;
-                }
-                $('#' + id + '.popupCell').css('background-color', '#69bff9');
             }
+            setCurrDateCss();
         });
-            $(document).change(function () {
-                var lid = "";
-                var fromDateId;
-                var endDateId;
-                for (var i = 0; i < 30; i++) {
-                    if ($('#' + i + '.date').text() == '@leaveFromDate' && $('#' + i + '.months').text() == '@m') {
+        $(document).change(function () {
+            var lid = "";
+            var fromDateId;
+            var endDateId;
+            for (var i = 0; i < 30; i++) {
+                if ($('#' + i + '.date').text() == '@leaveFromDate' && $('#' + i + '.months').text() == '@m') {
                         fromDateId = $('.date').attr("id").charAt(1) + i;
                     }
                     if ($('#' + i + '.date').text() == '@leaveToDate' && $('#' + i + '.months').text() == '@m') {
@@ -231,19 +224,12 @@
                         case '@employeName': lid = '@employeeNameID' + i;
                             DisplayLeaves(lid, "@leaveTypeName", '@leaveid');
                             break;
-                  
-                    default: alert("Employee Not Found");
-                        break;
+
+                        default: alert("Employee Not Found");
+                            break;
                     }
                 }
-                for (var l = 15; l < 915; l = l + 100) {
-                    if (l == 15) {
-                        var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
-                    } else {
-                        var id = $('.popupCell').attr("id").charAt(2) + l;
-                    }
-                    $('#' + id + '.popupCell').css('background-color', '#69bff9');
-                }
+                setCurrDateCss();
             });
 
     </script>

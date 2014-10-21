@@ -38,7 +38,7 @@ function clickpopup(event) {
             $('#' + divID + '.popupCell').html(resultString);
             $('#' + divID + '.popupCell').css('background-color', '#' + color);
             $('#' + divID + '.popupCell').removeClass('valueSet');
-            leaveID = $('#' + divID + '.popupCell').attr("title");
+            leaveID = $('#' + divID + '.popupCell').attr("role");
             $.post("/Home/Index", { leaveID: leaveID });
         } else {
             $AppendText = element;
@@ -53,8 +53,8 @@ function clickpopup(event) {
             leaveFromMonth = $('#' + dateDetails + '.months').text();
             leaveFromYear = $('#' + dateDetails + '.date').attr("title");
             employeeID = $('#' + empID + '.employeeName').attr("title");
-            _employeeID = employeeID.substring(0, 4);
-            _managerID = employeeID.substring(5, 9);
+            _employeeID = employeeID.substring(11, 16);
+            _managerID = employeeID.substring(26, 30);
             $.post("/Home/Index", { leaveTypeID: leaveTypeID, leaveFromDate: leaveFromDate, leaveFromMonth: leaveFromMonth, leaveFromYear: leaveFromYear, _employeeID: _employeeID, _managerID: _managerID });
         }
     }
@@ -87,7 +87,8 @@ function DisplayLeaves(elementid, LeaveName, leaveid) {
         $('#' + divID + '.popupCell').css('background-color', '#' + color);
         $('#' + divID + '.popupCell').css('font-size', '25px');
         $('#' + divID + '.popupCell').addClass('valueSet');
-        $('#' + divID + '.popupCell').attr("title", "" + leaveid + "");
+        $('#' + divID + '.popupCell').attr("title", "" + LeaveName + "");
+        $('#' + divID + '.popupCell').attr("role", "" + leaveid + "");
     }
 
     return true;
@@ -245,6 +246,39 @@ function setDateRange(SetDate) {
     });
 }
 
+function disableHolidays() {
+    for (var i = 0; i < 31; i++) {
+        if ($('#' + i + '.headerCellHoliday').text().substring(3, 6) == 'SAT' || $('#' + i + '.headerCellHoliday').text().substring(3, 6) == 'SUN') {
+            for (var k = 0; k < 10; k++) {
+                $('#' + k + i + '.popupCell').unbind("click");
+            }
+        }
+    }
+}
+
+function resetGrid() {
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < 31; j++) {
+            $('#' + i + j + '.popupCell').text("");
+            $('#' + i + j + '.popupCell').removeClass("valueSet");
+            $('#' + i + j + '.popupCell').css('background-color', '#fff');
+            $('#' + i + j + '.popupCell').bind("click");
+        }
+    }
+
+}
+
+function setCurrDateCss() {
+    for (var l = 15; l <= 915; l = l + 100) {
+        if (l == 15) {
+            var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
+        } else {
+            var id = $('.popupCell').attr("id").charAt(2) + l;
+        }
+        $('#' + id + '.popupCell').css('background-color', '#69bff9');
+    }
+}
+
 $(document).ready(function () {
     setDateRange(new Date());
     $('#inputDate').change(function () {
@@ -254,21 +288,8 @@ $(document).ready(function () {
             setDateRange(inputDate.value)
         }
         $.post("/Home/Index", { date: $('#inputDate').val() });
-        for (var i = 0; i < 10; i++) {
-            for (var j = 0; j < 31; j++) {
-                $('#' + i + j + '.popupCell').text("");
-                $('#' + i + j + '.popupCell').removeClass("valueSet");
-                $('#' + i + j + '.popupCell').css('background-color', '#fff');
-            }
-        }
-        for (var l = 15; l <= 915; l = l + 100) {
-            if (l == 15) {
-                var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
-            } else {
-                var id = $('.popupCell').attr("id").charAt(2) + l;
-            }
-            $('#' + id + '.popupCell').css('background-color', '#69bff9');
-        }
+        resetGrid();
+        disableHolidays();
     });
     resultString = "<div class='dropdown theme-dropdown clearfix'><ul id='LeaveMenu' class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'><li role='presentation' id ='1' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#' >Vacation Leave </a></li><li role='presentation' id = '2' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Sick Leave</a></li><li role='presentation' id = '3' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Personal Leave</a></li><li role='presentation' id = '4' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Marriage Leave</a></li><li role='presentation' id = '5' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Custom Leave</a></li><li role='presentation' id = '6' onmousedown='clickpopup(this);'><a role='menuitem' tabindex='-1' href='#'>Remove Selection</a></li></ul></div>";
     $('.popupCell').bind('click', function () {
@@ -276,31 +297,17 @@ $(document).ready(function () {
         var self = this;
         $('#' + selectedCellId + '.popupCell').html(resultString);
     });
-    for (var l = 15; l <= 915; l = l + 100) {
-        if (l == 15) {
-            var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
-        } else {
-            var id = $('.popupCell').attr("id").charAt(2) + l;
-        }
-        $('#' + id + '.popupCell').css('background-color', '#69bff9');
-    }
+    setCurrDateCss();
     var getId = $('.dailyLeaves').attr("id").charAt(2) + 15;
     if (getId == 15) {
         $('#' + getId + '.dailyLeaves').css('background-color', '#69bff9');
     }
+    disableHolidays();
 });
 
 $(document).mouseup(function () {
     $('.dropdown').slideUp();
-    for (var l = 15; l < 915; l = l + 100) {
-        if (l == 15) {
-            var id = $('.popupCell').attr("id").charAt(2) + 0 + l;
-        } else {
-            var id = $('.popupCell').attr("id").charAt(2) + l;
-        }
-        $('#' + id + '.popupCell').css('background-color', '#69bff9');
-    }
-
+    setCurrDateCss();
 });
 
 $(document).mousemove(function () {
